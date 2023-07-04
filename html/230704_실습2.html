@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>설문조사</title>
+</head>
+<body>
+    <h2>설문조사</h2>
+    <div>
+        <label for="name">이름</label>
+        <input type="text" name="name" id="name">
+    </div>
+    <div>
+        <label for="email">이메일</label>
+        <input type="email" name="email" id="email">
+    </div>
+    <h3>나이</h3>
+    <div>
+        <input type="radio" name="age" value="10대" id="age10">
+        <label for="age10">10대</label>
+        <input type="radio" name="age" value="20대" id="age20">
+        <label for="age20">20대</label>
+        <input type="radio" name="age" value="30대" id="age30">
+        <label for="age30">30대</label>
+        <input type="radio" name="age" value="40대" id="age40">
+        <label for="age40">40대</label>
+        <input type="radio" name="age" value="50대" id="age50">
+        <label for="age50">50대</label>
+        <input type="radio" name="age" value="60대 이상" id="age60">
+        <label for="age60">60대</label>
+    </div>
+    <h3>원하는 강의(복수응답가능합니다.)</h3>
+    <div>
+        <input type="checkbox" name="class" value="html" id="html">
+        <label for="html">html</label>
+        <input type="checkbox" name="class" value="javascript" id="javascript">
+        <label for="javascript">javascript</label>
+        <input type="checkbox" name="class" value="css" id="css">
+        <label for="css">css</label>
+    </div>
+    <div>
+        <textarea placeholder="하고 싶은 말을 입력해 주세요!" cols="100" rows="10"></textarea>
+        <input type="button" value="제출">
+    </div>
+    
+</body>
+</html>
