@@ -51,12 +51,23 @@
         /* 가상요소선택자 */
         .example::after{
             /* content는 무조건 작성해야한다. */
-            content: url(img/230704_실습1.PNG);
+            /* content: url(img/230704_실습1.PNG); */
         }
 
         .example::before{
             /* content는 무조건 작성해야한다. */
             content: "<";
+        }
+
+        /* 속성선택자 */
+        /* [속성이름=속성값]{} */
+        /* [속성이름]{} */
+        input[type="text"]{
+            background-color: green;
+        }
+
+        [disabled]{
+            color: white;
         }
     </style>
     <div class="fruits">
@@ -70,5 +81,9 @@
     <div class="example">
         안녕하세요!
     </div>
+
+    <input type="text" value="HEROPY">
+    <input type="password" value="1234">
+    <input type="text" value="ABCD" disabled>
 </body>
 </html>
