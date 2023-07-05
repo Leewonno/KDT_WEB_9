@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>가상 클래스 선택자</title>
+</head>
+<body>
+    <style>
+        a:hover{
+            color:red;
+        }
+        a:active{
+            color: yellow;
+        }
+        button{
+            color: #767676;
+        }
+        button:hover{
+            background-color: blue;
+            color: white;
+        }
+        button:active{
+            background-color: yellow;
+            color: black;
+        }
+        input{
+            outline: none;
+        }
+        input:focus{
+            background-color: orange;
+        }
+        .name_ip:hover{
+            background-color: yellow;
+        }
+    </style>
+    <a href="https://www.naver.com" target="_blank">네이버</a>
+    <button type="button">버튼</button>
+
+    <input type="text" class="name_ip" name="name" placeholder="이름을 입력해주세요.">
+</body>
+</html>

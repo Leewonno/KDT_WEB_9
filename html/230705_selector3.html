@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        /* first-child */
+        .fruits span:first-child{
+            color: red;
+        }
+
+        /* 적용되지 않음 */
+        /* 첫번째 하위요소가 div가 아니기때문 */
+        /* 뒤에서부터 읽어야한다. */
+        /* last-child 도 마찬가지 */
+        .fruits div:first-child{
+            color: red;
+        }
+
+        /* last-child */
+        .fruits h3:last-child{
+            color: red;
+        }
+
+        /* 적용되지 않음 */
+        .fruits p:last-child{
+            color: red;
+        }
+    </style>
+    <div class="fruits">
+        <span>딸기</span>
+        <span>수박</span>
+        <div>오렌지</div>
+        <p>망고</p>
+        <h3>사과</h3>
+    </div>
+</body>
+</html>
