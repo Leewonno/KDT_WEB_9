@@ -47,6 +47,17 @@
         .fruits *:not(p){
             font-style: italic;
         }
+
+        /* 가상요소선택자 */
+        .example::after{
+            /* content는 무조건 작성해야한다. */
+            content: url(img/230704_실습1.PNG);
+        }
+
+        .example::before{
+            /* content는 무조건 작성해야한다. */
+            content: "<";
+        }
     </style>
     <div class="fruits">
         <span>딸기</span>
@@ -54,6 +65,10 @@
         <div>오렌지</div>
         <p>망고</p>
         <h3>사과</h3>
+    </div>
+
+    <div class="example">
+        안녕하세요!
     </div>
 </body>
 </html>
