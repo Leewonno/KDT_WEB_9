@@ -7,8 +7,14 @@
 </head>
 <body>
     <style>
+        :root{
+            --main_color : orange;
+            --main_font_size : 30px;
+        }
         /* first-child */
         .fruits span:first-child{
+            background-color: var(--main_color);
+            font-size: var(--main_font_size);
             color: red;
         }
 
@@ -17,7 +23,8 @@
         /* 뒤에서부터 읽어야한다. */
         /* last-child 도 마찬가지 */
         .fruits div:first-child{
-            color: red;
+            background-color: var(--main_color);
+            font-size: var(--main_font_size);
         }
 
         /* last-child */
