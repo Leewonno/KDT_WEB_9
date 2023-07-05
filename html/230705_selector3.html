@@ -29,6 +29,24 @@
         .fruits p:last-child{
             color: red;
         }
+
+        /* nth-child(n) */
+        .fruits *:nth-child(1){
+            color: blue;
+        }
+        /* 짝수 선택 */
+        .fruits *:nth-child(2n){
+            background-color: aqua;
+        }
+        /* 홀수 선택 */
+        .fruits *:nth-child(2n+1){
+            background-color: yellow;
+        }
+
+        /* 부정선택자 */
+        .fruits *:not(p){
+            font-style: italic;
+        }
     </style>
     <div class="fruits">
         <span>딸기</span>
