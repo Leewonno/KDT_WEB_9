@@ -6,7 +6,7 @@
     <title>선택자 공부</title>
 </head>
 <body>
-    <style>
+    <!-- <style>
         /* 전체선택자 */
         *{
             color: red;
@@ -26,15 +26,78 @@
         #ap{
             background-color: aqua;
         }
-    </style>
+    </style> -->
 
-    <div>
+    <!-- <div>
         안녕
     </div>
     <span>안녕하세요</span>
     <ul>
         <li id="ap">사과</li>
         <li class="st">딸기</li>
-    </ul>
+    </ul> -->
+
+    <style>
+        /* span 태그면서 orange 클래스를 가진 걸 선택 */
+        /* 일치선택자 */
+        span.orange{
+            color: orange;
+        }
+
+        .orange.apple{
+            color: red;
+        }
+
+        /* 자식선택자 */
+        /* 바로 아래만 */
+        /* div아래 p태그 */
+        div > p{
+            color: navy;
+        }
+
+        div > ul > li{
+            color: skyblue;
+        }
+
+        /* 하위선택자 */
+        /* 자식의 자식도 해당 (아래는 모두 해당) */
+        div .cc{
+            color: gray;
+        }
+
+        /* 인접형제선택자 */
+        /* + 이용 */
+        /* 같은 줄에 있는 요소들 */
+        /* ul 다음의 div를 선택하겠다. */
+        ul + div{
+            color: purple;
+        }
+
+        /* 이건 아무것도 선택되지 않음 */
+        /* ul과 p 사이에 div가 있으므로 */
+        ul + p{
+
+        }
+
+        /* 일반형제선택자 */
+        /* ~ 사용 */
+        .ap1 ~li{
+            font-weight: 600;
+        }
+    </style>
+
+    <div>
+        <ul>
+            <li class="orange apple">사과_2</li>
+            <li class="cc">딸기</li>
+            <li class="orange">오렌지</li>
+            <li class="ap1">사과_1</li>
+            <li>유자</li>
+            <li>귤</li>
+        </ul>
+        <div>당근</div>
+        <p>토마토</p>
+        <span class="orange">오렌지</span>
+    </div>
 </body>
 </html>
