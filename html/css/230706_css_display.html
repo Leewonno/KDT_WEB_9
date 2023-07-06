@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLEX</title>
+</head>
+<body>
+    <style>
+        .flex_box{
+            height: 500px;
+            background-color: aliceblue;
+            /* 바로 아래 자식 요소들만 영향 */
+            display: flex;
+            /* flex : 자식 요소를 inline-block으로 만든다 */
+            justify-content: center;
+            /* flex 일때 사용가능, 가로 가운데 정렬 - 단, 방향이 기본값일 때 */
+            align-items: center;
+            /* flex 일때 사용가능, 세로 가운데 정렬 - 단, 방향이 기본값일 때 */
+
+            /* flex-direction 기본값은 row */
+            /* 세로 정렬은 column */
+        }
+        .child_box{
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            margin: 10px;
+        }
+    </style>
+    <div class="flex_box">
+        <div class="child_box">
+
+        </div>
+        <div class="child_box">
+
+        </div>
+        <div class="child_box">
+
+        </div>
+    </div>
+</body>
+</html>
