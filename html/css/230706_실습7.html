@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습7</title>
+</head>
+<body>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            /* border: 15px solid red; */
+            background-color: blue;
+        }
+        div > div{
+            width: 200px;
+            height: 50px;
+            margin-left: 20px;
+            margin-top: 20px;
+            background-color: orange;
+        }
+        /* div:hover{
+            opacity: 0.7;
+            display: none;
+        } */
+        .f{
+            overflow: visible;
+        }
+        .s{
+            overflow: hidden;
+        }
+        .t{
+            overflow: scroll;
+        }
+        .q{
+            overflow: auto;
+        }
+    </style>
+    <br /><br />
+    <div class="f">
+        <div></div>
+    </div>
+    <br /><br />
+    <div class="s">
+        <div></div>
+    </div>
+    <br /><br />
+    <div class="t">
+        <div></div>
+    </div>
+    <br /><br />
+    <div class="q">
+        <div></div>
+    </div>
+</body>
+</html>

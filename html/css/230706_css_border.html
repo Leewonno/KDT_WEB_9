@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>테두리</title>
+</head>
+<body>
+    <style>
+        .border-1{
+            width: 200px;
+            height: 100px;
+            background-color: wheat;
+
+            /* border 속성에 입력되는 개수에 따라 위, 아래, 양옆 등 설정 가능 */
+            border-color: black;
+            border-style: solid;
+            border-width: 2px;
+        }
+
+        .border-2{
+            width: 200px;
+            height: 100px;
+            background-color: wheat;
+
+            /* 한번에 */
+            border: 2px solid black;
+
+            border-top-left-radius: 10px;
+            border-top-right-radius: 15px;
+            border-bottom-left-radius: 20px;
+            border-bottom-right-radius: 50%;
+        }
+
+        /* box-sizing의 기본값은 content-box : 내용만 포함 */
+        /* border-box는 border값과 padding값을 포함. margin값은 제외 */
+
+        .content-box{
+            width: 200px;
+            height: 100px;
+            border: 2px solid black;
+            padding: 30px;
+            box-sizing: content-box;
+        }
+
+        .border-box{
+            width: 200px;
+            height: 100px;
+            border: 2px solid black;
+            padding: 30px;
+            box-sizing: border-box;
+        }
+    </style>
+    <div class="border-1"></div>
+    <br /><br />
+    <div class="border-2"></div>
+    <br /><br />
+    <div class="content-box"></div>
+    <br /><br />
+    <div class="border-box"></div>
+</body>
+</html>
