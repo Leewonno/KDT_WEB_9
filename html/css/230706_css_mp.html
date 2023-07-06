@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>margin, padding</title>
+</head>
+<body>
+    <style>
+        .block{
+            background-color: red;
+            font-size: 2em;
+            color: white;
+            width: 200px;
+            height: 200px;
+            margin-top: 100px;
+            margin-left: 100px;
+            padding-left: 50px;
+            padding-top: 50px;
+
+            /* margin: top, right, bottom, left */
+
+            /* 위 아래 동일, 왼쪽 오른쪽 동일할 경우 */
+            /* margin: top-bottom right-left */
+            /* ex) margin: 100px 50px */
+
+            /* 모두 동일한 margin 적용시 */
+            /* margin: 100px */
+
+            /* 위 아래가 다르고, 왼쪽 오른쪽이 동일할 경우 */
+            /* margin: 100px 20px 80px */
+        }
+
+        .mm-width{
+            background-color: darkblue;
+            color: white;
+            /* 브라우저의 크기만큼 가로길이를 차지하겠다 */
+            /* width: 100vw; */
+            /* 브라우저의 크기만큼 세로길이를 차지하겠다 */
+            /* height: 100vh; */
+            max-width: 1000px;
+            min-width: 200px;
+            height: 100px;
+
+            /* 계산도 가능! */
+            width: calc(100vw-20px);
+            line-height: 100px;
+        }
+    </style>
+    <!-- margin은 외부여백 -->
+    <!-- padding은 내부여백 -->
+    <div class="block">안녕</div>
+
+    <!-- inline 요소에서는 margin이 원래는 먹지 않는다. -->
+
+    <div class="mm-width">안녕</div>
+</body>
+</html>
