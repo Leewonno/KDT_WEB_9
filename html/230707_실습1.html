@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습1</title>
+</head>
+<body>
+    <style>
+        body{
+            margin:0;
+        }
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+        }
+        .container{
+            width: 500px;
+            height: 500px;
+            background-color: blue;
+            position: relative;
+        }
+        .item_1{
+            position: relative;
+            left: 50px;
+            top:30px;
+            background-color: yellow;
+        }
+        .item_2{
+            position: absolute;
+            right: 30px;
+            bottom: 100px;
+            background-color: green;
+        }
+        .item_3{
+            position: fixed;
+            right: 100px;
+            top: 100px;
+            background-color: aqua;
+        }
+    </style>
+    
+    <div class="container">
+        <div class="item_1"></div>
+        <div class="item_2"></div>
+        <div class="item_3"></div>
+    </div>
+    
+</body>
+</html>
