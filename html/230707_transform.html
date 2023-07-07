@@ -6,6 +6,51 @@
     <title>Transform</title>
 </head>
 <body>
-    
+    <style>
+        div{
+            transform: ;
+        }
+
+        img{
+            width: 100px;
+            height: 100px;
+            margin-left: 0px;
+        }
+
+        /* 동시에 적용하려면 계속 쭉 적어라 */
+        img#translate:active{
+            transform: translate(100px, 40px);
+        }
+
+        img#scaleX:active{
+            transform: scaleX(2);
+        }
+
+        img#rotate:active{
+            transform: rotateX(180deg);
+            /* transition-property: transform;
+            transition-duration: 1s;
+            transition-timing-function: linear;
+            transition-delay: 2s; */
+
+            /* 동시에 쓰고 싶다면 */
+            transition: transform 2s linear 2s;
+            /* 뒷면은 숨긴다 */
+            backface-visibility: hidden;
+        }
+
+        img#skew:active{
+            margin-left: 100px;
+            transform: skewX(45deg);
+            transition: all 3s linear 1s;
+        }
+    </style>
+
+    <div>
+        <img id="translate" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832">
+        <img id="scaleX" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832">
+        <img id="rotate" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832">
+        <img id="skew" src="https://search.pstatic.net/common/?src=http%3A%2F%2Fblogfiles.naver.net%2FMjAyMjA3MDVfMjI4%2FMDAxNjU2OTkzMDM3NzM5.nX8G42IYgt90OwlAOIQ6G-GNalrSOmLvaJCG4_oXyjMg.g1obojagiLCknlPmEaksUSTX7hp5McYDrAUsQXL6PCkg.JPEG.prince0198%2FDSC02985.jpg&type=sc960_832">
+    </div>
 </body>
 </html>

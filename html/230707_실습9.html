@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습9</title>
+</head>
+<body>
+    <style>
+        img{
+            width: 200px;
+            height: 200px;
+            position: absolute;
+            transform: skewY(30deg);
+        }
+        .ct{
+            position: relative;
+        }
+        .a{
+            z-index: 3;
+            left: 50px;
+            top:150px
+        }
+
+        .b{
+            z-index: 2;
+            left: 150px;
+            top: 125px;
+        }  
+
+        .c{
+            z-index: 1;
+            left: 250px;
+            top: 100px;
+        }
+    </style>
+
+    <div class="ct">
+        <img class="a" src="img/jc.jpg">
+        <img class="b" src="img/dc.jpg">
+        <img class="c" src="img/am.jpg">
+    </div>
+</body>
+</html>
