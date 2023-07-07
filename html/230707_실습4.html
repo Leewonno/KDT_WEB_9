@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습4</title>
+</head>
+<body>
+    <style>
+        div{
+            background-color: skyblue;
+            width: 800px;
+            height: 500px;
+            margin-bottom: 10px;
+        }
+        .one{
+            background-image: url(img/lion.png);
+            background-repeat: repeat-x;
+            background-position:center;
+        }
+
+        .two{
+            background-image: url(img/lion.png);
+            background-repeat: no-repeat;
+            background-size: contain;
+            background-position: 100px 30px;
+        }
+
+        .three{
+            background-image: url(img/lion.png);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-position: center;
+        }
+    </style>
+    <div class="one"></div>
+    <div class="two"></div>
+    <div class="three"></div>
+
+</body>
+</html>
