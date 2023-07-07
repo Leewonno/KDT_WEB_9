@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Z-index</title>
+</head>
+<body>
+    <style>
+        body{
+            margin: 0;
+        }
+        .container{
+            position:relative;
+            background-color: black;
+            width:100%;
+            height: 400px;
+            /* 절대 부모는 자식보다 위에 올 수 없다. */
+            /* 아무리 숫자가 커도 */
+            z-index: 4;
+        }
+
+        .item{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+        }
+
+        .one{
+            background-color: red;
+            top: 20px;
+            left: 20px;
+            z-index: 3;
+        }
+        .two{
+            background-color: green;
+            top: 40px;
+            left: 40px;
+            z-index: 2;
+        }
+        .three{
+            background-color: blue;
+            top: 60px;
+            left: 60px;
+            z-index: 1;
+        }
+
+        .c_1{
+
+        }
+
+        .c_2{
+            
+        }
+    </style>
+
+    <div class="container c_1">
+        <div class="item one"></div>
+        <div class="item two"></div>
+        <div class="item three"></div>
+    </div>
+
+    <div class="container c_2">
+        <div class="item one"></div>
+        <div class="item two"></div>
+        <div class="item three"></div>
+    </div>
+</body>
+</html>

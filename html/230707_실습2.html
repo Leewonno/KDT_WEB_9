@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습2</title>
+</head>
+<body>
+    <style>
+        .container{
+            position: relative;
+            width: 500px;
+            height: 500px;
+            background-color: black;
+        }
+
+        .item{
+            position: absolute;
+            width: 100px;
+            height: 100px;
+        }
+
+        .item_1{
+            background-color: yellow;
+        }
+        .item_2{
+            top: 30px;
+            left: 30px;
+            background-color: green;
+        }
+        .item_3{
+            top: 60px;
+            left: 60px;
+            background-color: aqua;
+        }
+        
+        .z_1{
+            z-index: 3;
+        }
+
+        .z_2{
+            z-index: 1;
+        }
+
+        .z_3{
+            z-index: 2;
+        }
+    </style>
+
+    <div class="container">
+        <div class="item item_1"></div>
+        <div class="item item_2"></div>
+        <div class="item item_3"></div>
+    </div>
+
+    <div class="container">
+        <div class="item item_1 z_1"></div>
+        <div class="item item_2 z_2"></div>
+        <div class="item item_3 z_3"></div>
+    </div>
+</body>
+</html>
