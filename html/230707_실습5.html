@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습5</title>
+</head>
+<body>
+    <style>
+        .container{
+            width: 500px;
+            height: 500px;
+            display: flex;
+            background-color: skyblue;
+            margin-bottom: 10px;
+        }
+        .item{
+            width: 100px;
+            height: 100px;
+        }
+        .it_1{
+            background-color: red;
+        }
+        .it_2{
+            background-color: blue;
+        }
+        .it_3{
+            background-color: green;
+        }
+        .ct_1{
+            
+        }
+        .ct_2{
+            flex-direction: row-reverse;
+        }
+        .ct_3{
+            flex-direction: column;
+        }
+    </style>
+
+    <div class="container ct_1">
+        <div class="item it_1"></div>
+        <div class="item it_2"></div>
+        <div class="item it_3"></div>
+    </div>
+
+    <div class="container ct_2">
+        <div class="item it_1"></div>
+        <div class="item it_2"></div>
+        <div class="item it_3"></div>
+    </div>
+
+    <div class="container ct_3">
+        <div class="item it_1"></div>
+        <div class="item it_2"></div>
+        <div class="item it_3"></div>
+    </div>
+</body>
+</html>

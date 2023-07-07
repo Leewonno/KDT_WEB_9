@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FLEX</title>
+</head>
+<body>
+    <style>
+        .container{
+            display: flex;
+            /* 기본값은 row, 세로배치는 column */
+            /* -reverse 를 붙이면 순서 뒤집고, 시작점을 변경(왼쪽에 배치되어있었다면 오른쪽으로 이동) */
+            /* 위에 배치되어있다면 아래로 배치 */
+            flex-direction: row;
+
+            /* flex-wrap */
+            /* no-wrap이 기본값 / wrap으로 설정하면 공간이 부족하면 줄바꿈이됨 */
+            flex-wrap: wrap;
+        }
+
+        .container > div{
+            width: 100px;
+            height: 100px;
+                
+        }
+
+        .red{
+            background-color: red;
+        }
+
+        .blue{
+            background-color: blue;
+        }
+
+        .green{
+            background-color: green;
+        }
+    </style>
+    
+    <div class="container">
+        <div class="red"></div>
+        <div class="blue"></div>
+        <div class="green"></div>
+        <div class="red"></div>
+        <div class="blue"></div>
+        <div class="green"></div>
+    </div>
+</body>
+</html>
