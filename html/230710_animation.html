@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>애니메이션</title>
+</head>
+<body>
+    <style>
+        body{
+            margin:0;
+        }
+        div{
+            animation: move_right 1s infinite alternate;
+            position: absolute;
+            width: 100px;
+            height: 100px;
+            background-color: blue;
+            transition: 2s linear;
+        }
+
+        div:active{
+            transform: rotate(45deg);
+        }
+
+        @keyframes move_right {
+            from{
+                left: 0px;
+            }
+            to{
+                left: 100px;
+            }
+
+            /* 0%{
+                left: 0px;
+            }
+
+            50%{
+                left: 100px;
+            }   
+
+            100%{
+                left: 0px;
+            } */
+        }
+    </style>
+
+    <div>
+
+    </div>
+</body>
+</html>
