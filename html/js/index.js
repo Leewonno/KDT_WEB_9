@@ -42,3 +42,6 @@ console.log(names.indexOf("이원노2"))
 // 포함되어있으면 true, 없으면 false
 var tf = names.includes("이원노")
 console.log(tf);
+
+
+// Object

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습7</title>
+</head>
+<body>
+    <script>
+        let n = 1;
+        let sum = 0;
+        while(n<100){
+            if((n%2)==0){
+                sum = sum + n;
+                n++
+                continue;
+            }
+            else if((n%3)==0){
+                sum = sum + n;
+            }
+            n++
+        }
+
+        console.log(sum);
+    </script>
+</body>
+</html>

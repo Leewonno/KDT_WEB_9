@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>함수</title>
+</head>
+<body>
+    <script>
+        // 함수 호출
+        sayHello();
+        
+        // 함수 선언식
+        // 함수 선언은 어디서든 호출가능
+        function sayHello(){
+            console.log("Hello");
+        };
+
+        // 함수 표현식
+        let sayHello2 = function (){
+            console.log("Hello2");
+        };
+
+        sayHello2();
+        // 함수표현식으로 함수를 만들면
+        // 함수 호출시 표현식 아래 위치
+
+        // 화살표함수
+        let sayHello3 = () =>{
+            console.log("Hello3");
+        }
+        
+        sayHello3();
+    </script>
+
+    <script>
+        // 매개변수 학습
+        // 함수외부에서 사용한 변수 값 등을 내부에서 사용하게 해준다.
+        // 매개변수가 없고, 반환값도 없음
+        function aaa(){
+            console.log("aaa")
+        }
+
+        // 반환값은 함수 내에서 생성된 변수, 값 등을 함수 외부로 전달하고 싶을 때 사용한다.
+
+        // 매개변수 없고, 반환값 있음
+        function bbb(){
+            return "bbb"
+        }
+
+        aaa()
+        let str = bbb()
+
+        // 매개변수 있고, 반환값이 없음
+        function ccc(name){
+            console.log(name);
+        }
+
+        ccc("ccc");
+
+        // 매개변수와 반환값이 있는 함수
+        function ddd(name){
+            return "제 이름은 " + name + " 입니다.";
+        }
+
+        console.log(ddd("이원노"));
+
+
+        let sum = (num1, num2) =>{
+            let num = num1 + num2;
+            let mul = num * 5;
+            return mul;
+        }
+
+        let sumMul = sum(3, 6);
+        console.log(sumMul);
+    </script>
+
+    <!-- onclick -->
+    <script>
+        function sayYes(){
+            alert("Yes!");
+        }
+    </script>
+
+    <button onclick="sayYes()">Yes</button>
+    <div style="border: 1px solid black; cursor: pointer;" onclick="sayYes()">
+        Yes
+    </div>
+</body>
+</html>

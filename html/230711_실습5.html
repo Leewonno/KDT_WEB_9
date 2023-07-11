@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습4</title>
+</head>
+<body>
+    <script>
+        let age = Number(prompt("나이를 입력하세요"));
+        let gender = prompt("성별을 입력하세요 : 남 or 여")
+
+        if(age>=20 && gender =="남"){
+            console.log("성인 남성")
+        }
+        else if(age>=20 && gender =="여"){
+            console.log("성인 여성")
+        }
+        else if(age>=17 && gender =="남"){
+            console.log("고등 남학생")
+        }
+        else if(age>=17 && gender =="여"){
+            console.log("고등 여학생")
+        }
+        else if(age>=14 && gender =="남"){
+            console.log("중등 남학생")
+        }
+        else if(age>=14 && gender =="여"){
+            console.log("중등 여학생")
+        }
+        else if(age>=8 && gender =="남"){
+            console.log("초등 남학생")
+        }
+        else if(age>=8 && gender =="여"){
+            console.log("초등 여학생")
+        }
+        else if(age>=0 && gender=="남"){
+            console.log("남자 어린이")
+        }
+        else{
+            console.log("여자 어린이")
+        }
+    </script>
+</body>
+</html>

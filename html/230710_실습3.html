@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        let color = ["white", "black", "red", "blue", "yellow", "green", "darkblue"];
+        console.log("배열 선언 결과 :", color);
+        console.log(color[0])
+        console.log(color[1])
+        console.log(color[2])
+        console.log(color[3])
+        
+        console.log("Index[2] :", color[2])
+
+        color.push("gold");
+        console.log("좋아하는 색 추가 :", color);
+
+        console.log("black 인덱스 :", color.indexOf("black"));
+
+        // 순서 반전
+        r_color = color.reverse()
+        console.log("순서 반전 :", r_color)
+    </script>
+</body>
+</html>

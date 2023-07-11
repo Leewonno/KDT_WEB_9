@@ -6,6 +6,34 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>자바스크립트</title>
 
+    <script>
+        // Object
+
+        let cat = {
+            age:5,
+            name:"냥이",
+            mew: function(){
+                console.log("야옹")
+            }
+        }
+
+        console.log(cat);
+        console.log(cat.age);
+        console.log(cat.name);
+        cat.mew()
+
+        // null 값은 Object로 나온다.
+        // undefined는 undefined로 나온다.
+        // 함수는 function으로 나온다.
+        console.log(typeof(cat.name))
+
+        var f_s = prompt("첫번째 성적을 입력하세요.");
+        var s_s = prompt("두번째 성적을 입력하세요.");
+
+        let avg = (Number(f_s) + Number(s_s)) / 2
+        console.log(avg)
+    </script>
+
     
 
 </head>
