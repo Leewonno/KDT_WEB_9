@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>내장메소드</title>
+</head>
+<body>
+    <script>
+        let str = "Happy Birthday~";
+        console.log(str);
+        console.log(str.toUpperCase());
+        console.log(str.toLowerCase());
+
+        // 대소문자 구분되어야한다.
+        console.log(str.indexOf("p"))
+
+        // 2번째부터 보여준다.
+        console.log(str.slice(2))
+
+        // replace는 첫번째만 바꿔줌
+        // replaceAll로 해야 모두 바꿔줌
+        console.log(str.replace("p", "a"))
+
+        // 몇번 반복하겠다.
+        console.log(str.repeat(2))
+
+        // 양쪽의 공백제거
+        console.log(str.trim());
+
+        // 어떤걸 기준으로 자르겠다
+        // 결과를 배열로 반환한다.
+        // 기준이 되는 문자는 사라진다.
+        console.log(str.split('a'))
+
+
+        // 메소드 체이닝
+        // 문자열을 뒤집는 함수는 제공되지 않는다.
+        // 배열을 이용한다. 배열로 만들고 거꾸로 뒤집는다.
+        // 배열을 문자열로 만들어주는 함수 join()
+        let hello = "HELLO";
+        let h_arr = hello.split("").reverse();
+        hello = h_arr.join("");
+        console.log(hello)
+
+        // join("")은 각각의 원소 사이에 어떤 걸 넣을지 적어준다. "" 아무내용을 입력하지 않으면 바로 이어줌
+</script>
+</body>
+</html>

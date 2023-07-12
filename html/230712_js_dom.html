@@ -1,0 +1,216 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>DOM</title>
+</head>
+<body>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+        }
+        .red{
+            background-color: red;
+        }
+        .orange{
+            background-color: orange;
+        }
+        .yellow{
+            background-color: yellow;
+        }
+
+        .blue{
+            background-color: blue;
+        }
+
+        .green{
+            background-color: green;
+        }
+
+        .skyblue{
+            background-color: skyblue;
+        }
+    </style>
+
+
+    <div class="container">
+        <div id="blue" class="box blue"></div>
+        <div id="green" class="box green"></div>
+        <div class="box skyblue"></div>
+    </div>
+
+    <button type="button" onclick="createGreenBox()">초록 추가</button>
+    <button type="button" onclick="removeBox()">사라져라</button>
+
+    <script>
+        function createGreenBox(){
+            let createBox = document.createElement('div');
+            createBox.className = "box green";
+
+            // document.querySelector(".container").append(createBox);
+            // 마지막 자식으로 괄호안에 요소를 추가한다.
+            // appendChild 안에는 무조건 노드 객체만 올 수 있다.
+            // append에는 문자열이 올수도 있다.
+
+            document.querySelector(".container").prepend(createBox);
+            // 맨 앞에 요소를 추가한다.
+
+            // ~앞에 추가하기
+            // document.getElementById("blue").before(createBox)
+
+            // ~뒤에 추가하기
+            // document.getElementById("blue").after(createBox)
+        }
+
+        function removeBox(){
+            document.getElementById("blue").remove();
+            // 위와 같은 원리로 removeChild가 있다.
+        }
+    </script>
+
+    <script>
+        let container = document.querySelector(".container");
+        let blueBox = document.getElementById("blue");
+
+        // 자식을 알아보자
+        console.log(container.children);
+        console.log(container.children[container.children.length-1]); //마지막 자식을 선택하겠다.
+
+        // 부모를 알아보자
+        console.log(blueBox.parentNode); //배열에 담지 않고 요소 하나를 선택한다.
+
+        // 형제를 선택한다.
+        console.log(blueBox.nextElementSibling);
+    </script>
+
+    <div id="red" class="box red">
+        <span>안녕22</span>
+    </div>
+    <div id="orange" class="box orange"></div>
+    <div class="box yellow"></div>
+
+    <button  type="button" onclick="redToggle()">변환</button>
+
+    <input type="text" name="id">
+
+    <script>
+        // 속성을 바꿔준다. 앞에는 속성, 뒤에는 값
+        document.getElementById("red").setAttribute("name", "papago");
+
+        document.write("안녕?");
+        // document의 마지막에 요소를 추가한다.
+
+        console.log(document.getElementById("red").innerText); //안에 있는 요소를 보여준다.
+        // document.getElementById("red").innerText = "안녕"
+        // innerText는 텍스트만!
+        // innerHTML은 태그도 가져온다.
+        console.log(document.getElementById("red").innerHTML);
+
+        // innerText에 태그를 넣으면, 태그 자체가 문자열로 나온다.
+
+        // className
+        // 어떤 클래스인지 알려준다.
+        console.log(document.getElementById("red").className);
+
+        // 클래스 내용을 바꿔준다.
+        // box를 없애고 yellow만 남기기
+        // document.getElementById("red").className = "yellow";
+
+        // 각각의 클래스를 배열로 반환해준다.
+        console.log(document.getElementById("red").classList);
+
+
+        function redToggle(){
+
+            document.getElementById("red").classList.toggle("red");
+
+            document.querySelectorAll(".box")[1].classList.toggle("orange")
+            // toggle함수는 아래 내용을 다 포함하고 있다.
+            // 괄호안에 내용이 리스트 안에 존재하는지 알아서 판단하고 추가하고 삭제한다.
+
+            // document.getElementById("red").classList.remove("red"); //red 를 지우겠다.
+            // document.getElementById("red").classList.contains("red"); //red가 클래스에 있는지 없는지 확인해준다.
+
+            // if(document.getElementById("red").classList.contains("red")){
+            //     // 입력된 값을 리스트 안에서 삭제하겠다.
+            //     document.getElementById("red").classList.remove("red");
+            // }   
+            // else{
+            //     // 입력된 값을 리스트 안에 추가하겠다.
+            //     document.getElementById("red").classList.add("red");
+            // }
+        }
+    </script>
+
+
+    <script>
+        let redBoxID = document.getElementById("red");
+        console.log(redBoxID);
+        // id는 여러개가 올 수 없기 때문에 배열에 담지 않는다.
+        let boxs = document.getElementsByClassName("box");
+        console.log(boxs);
+        // class는 여러분 사용될 수 있기 때문에 배열에 담긴다. 하나라도.
+
+        // div태그로 작성한 걸 모두 선택하겠다.
+        let boxsByTag = document.getElementsByTagName("div");
+        console.log(boxsByTag);
+
+        let inputByName = document.getElementsByName("id");
+        console.log(inputByName)
+        // name도 무조건 배열에 저장된다.
+
+        let boxesBySelector = document.querySelector(".box");
+        // 꼭 하나만 선택하겠다.
+        // 가장 위에 걸 읽는다.
+        console.log(boxesBySelector);
+
+        let boxesBySelectorAll = document.querySelectorAll(".box");
+        console.log(boxesBySelectorAll);
+        // 전체를 다 읽겠다. 배열에 담긴다.
+        // 아이디를 선택해도 배열에 담긴다.
+
+        let orangeBoxSelectorAll = document.querySelectorAll(".orange")
+        console.log(orangeBoxSelectorAll);
+
+
+
+    </script>
+
+    <script>
+        let now = new Date();
+
+        // 만료일
+        let expired = new Date("2023-06-07")
+        console.log(expired)
+
+        console.log(now);
+        console.log(now.getFullYear()) //2023년
+        console.log(now.getMonth() + 1) //현재 월에서 -1이 되므로 +1을 해줘야한다.
+        console.log(now.getDate());
+        console.log(now.getDay()); //요일을 숫자로 반환한다. 수요일은 3
+
+        console.log(now.getTime() >= expired.getTime());
+        // now가 expried보다 작으면 만료일이 지난것. true 반환
+
+        // Math
+        console.log(Math.PI);
+        console.log(Math.E)
+
+        console.log(Math.min(2,5,7,8)) //최솟값구하기
+        console.log(Math.max(2,5,7,8)) //최댓값구하기
+        console.log(Math.random()) //0~1사이 랜덤으로
+
+        // 반올림 0.5부터는 올림
+        console.log(Math.round(7.9), Math.round(7.2))
+        // 내림
+        console.log(Math.floor(7.9), Math.floor(7.2))
+        // 올림
+        console.log(Math.ceil(7.9), Math.ceil(7.2))
+
+        // 1~100까지의 난수생성
+        console.log(Math.floor(Math.random() * (100-1) + 1));
+    </script>
+</body>
+</html>

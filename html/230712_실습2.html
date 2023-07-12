@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습2</title>
+</head>
+<body>
+    <style>
+        label{
+            font-weight: 600;
+            width: 80px;
+            text-align: center;
+            display: inline-block;
+        }
+
+        table{
+            width: 650px;
+            text-align: center;
+            border: 1px solid black;
+            border-collapse: collapse;
+        }
+
+        tr{
+            height: 50px;
+            border-bottom: 1px solid black;
+        }
+
+        th:nth-child(1){
+            width: 50px;
+        }
+
+        th:nth-child(2){
+            width: 100px;
+        }
+
+        th:nth-child(3){
+            width: 200px;
+        }
+
+        th:nth-child(4){
+            width: 300px;
+        }
+
+        #content{
+            width: 400px;
+        }
+
+        button{
+            margin-top: 30px;
+            margin-bottom: 30px;
+        }
+    </style>
+    <div>방명록 입니다.</div>
+    <div><label>작성자</label><input type="text" id="name"></div>
+    <div><label>내용</label><input type="text" id="content"></div>
+    <div><button type="button" onclick="send()">작성</button></div>
+
+    <table id="table">
+        <tr>
+            <th>번호</th>
+            <th>작성자</th>
+            <th>내용</th>
+            <th>작성일</th>
+        </tr>
+
+    </table>
+
+    <script>
+        let num = 1;
+        function send(){
+            let name = document.getElementById("name").value;
+            let content = document.getElementById("content").value;
+            let table = document.getElementById("table");
+            let now = new Date();
+            let inputTime = now.getFullYear() + "-" + (now.getMonth() + 1) + "-" + now.getDate() + " " + now.getHours() + " : " + now.getMinutes();
+
+            let createTr = document.createElement('tr');
+            let createTd = document.createElement("td");
+            
+            createTr.innerHTML = `<td>${num++}</td><td>${name}</td><td>${content}</td><td>${inputTime}</td>`
+            
+            table.append(createTr);
+            
+
+        }
+    </script>
+
+    <script>
+        // let tr = document.createElement('tr');
+        // let td_1 = document.createElement("td");
+        // td_1.innerText = name;
+
+        // tr.append(td_1);
+
+        // table.append(tr);
+    </script>
+</body>
+</html>

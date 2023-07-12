@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습</title>
+</head>
+<body>
+    <style>
+        form{
+            display: block;
+        }
+        input{
+            display: block;
+        }
+    </style>
+    <form action="">
+        <label>값1:</label>
+        <input type="text" id="value1">
+        <label>값2:</label>
+        <input type="text" id="value2">
+        <label>연산자:</label>
+        <input type="text" id="operator">
+        <label>결과:</label>
+        <input type="text" id="result">
+
+        <button type="button" onclick="calc()">계산하기</button>
+        <input type="reset" value="초기화">
+    </form>
+    
+    <script>
+        
+
+        function calc(){
+            let value1 = document.getElementById("value1");
+            let value2 = document.getElementById("value2");
+            let op = document.getElementById("operator");
+            let result = document.getElementById("result");
+
+            var num = Number(value1.value);
+            var num2 = Number(value2.value);
+            var o = op.value;
+            
+            if(o=="+"){
+                result.value = num + num2;
+            }
+            else if(o=="-"){
+                result.value = num - num2;
+            }
+            else if(o=="/"){
+                result.value = num / num2;
+            }
+            else if(o=="*"){
+                result.value = num * num2;
+            }
+            else if(o=="%"){
+                result.value = num % num2;
+            }
+            else{
+                result.value = "설정되지 않은 연산자가 입력되었습니다."
+            }
+            
+        }
+    </script>
+</body>
+</html>

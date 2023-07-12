@@ -11,18 +11,30 @@
         for(let i=0; i<fruits.length; i++){
             console.log(fruits[i]);
         }
+
+        fruits.forEach(function (data, index, arr){
+            console.log(data);
+            console.log(index);
+            console.log(arr);
+        })
+
+        fruits.forEach((data, index, arr) => {
+            console.log(data);
+            console.log(index);
+            console.log(arr);
+        })
     </script>
 
     <script>
-        let index = 0;
-        while(index < fruits.length){
-            if(fruits[index] == "banana"){
-                index++;
-                continue
-            }
-            console.log(fruits[index]);
-            index++;
-        }
+        // let index = 0;
+        // while(index < fruits.length){
+        //     if(fruits[index] == "banana"){
+        //         index++;
+        //         continue
+        //     }
+        //     console.log(fruits[index]);
+        //     index++;
+        // }
     </script>
 </body>
 </html>

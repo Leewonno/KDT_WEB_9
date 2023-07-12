@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습10</title>
+</head>
+<body>
+    <script>
+        let arr = []
+        for(let i=1; i<101; i++){
+            arr.push(i);
+        }
+
+        console.log(arr);
+
+
+        let for_sum = 0;
+        let for_each_sum = 0;
+        let for_of_sum = 0;
+
+        // for문
+        for(let i=0; i<arr.length; i++){
+            for_sum += arr[i];
+        }
+        
+        // for of 문
+        for(let num of arr){
+            for_of_sum += num;
+        }
+        
+        // forEach 문
+        arr.forEach((num) => {
+            for_each_sum += num;
+        });
+
+        console.log("for문 :", for_sum);
+        console.log("for of문 :", for_of_sum);
+        console.log("forEach문 :", for_each_sum);
+    </script>
+</body>
+</html>
