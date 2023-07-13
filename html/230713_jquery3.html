@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    <title>제이쿼리_UI</title>
+</head>
+<body>
+    <style>
+        .container{
+            height: 2000px;
+        }
+    </style>
+
+    <div class="container">
+        <input type="text">
+    </div>
+
+    <button></button>
+
+    <button type="button" onclick="">바꾸기</button>
+
+    <script>
+        window.addEventListener("load", function(){})
+
+        $().on("click", function(){
+
+        })
+
+        $(window).ready(function (){
+
+        })
+
+        // 페이지 로드 완료 후에 실행되는 함수
+        $(function(){
+            $(".container").append("<h1 class='red'></h1>")
+        })
+
+        // $("button").on("click", function(){
+
+        // })
+
+        $("button").click(function(){
+            alert("클릭!")
+        })
+
+        // 마우스가 올라가는 순간
+        $("button").mouseover(function(){
+
+        })
+
+        // 마우스가 올라가 있는 동안
+        $("button").hover(function(){
+
+        })
+
+        // 스크롤
+        $(window).scroll(function(){
+            console.log("스크롤")
+        })
+
+        // 키다운
+        $("input").keydown(function(e){
+            console.log($(this));
+            // 단 this는 화살표 함수에서는 제대로 작동하지 않는다.
+            // 화살표에서 this는 객체의 부모를 가리킨다.
+            // 화살표에서는 자기 자신이 없기 때문
+            console.log(e.key);
+        })
+    </script>
+</body>
+</html>

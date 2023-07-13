@@ -14,9 +14,20 @@
             background-color: red;
             transition: all 2s;
         }
+
+        .red{
+            background-color: red;
+        }
+
+        .orange{
+            background-color: orange;
+        }
     </style>
 
     <button onclick="submited()">버튼</button>
+    <button onclick="btn2()">사라져라</button>
+    <button onclick="toggle()">토글</button>
+    <button onclick="search()">요소탐색</button>
     <input type="text" name="id" id="id">
 
     <div>
@@ -32,7 +43,7 @@
             // $("#id").val("aaa");
 
             // 스타일적용
-            $("div").css("background-color", "blue");
+            // $("div").css("background-color", "blue");
 
             // 속성적용
             $("input").attr("placeholder", "아이디를 입력해주세요")
@@ -46,8 +57,54 @@
 
             // append함수
             $("div").append("<h1>안녕</h1>")
+
+            // prepend
+            // after
+            // before
+
+            // remove
+            // $("div").remove()
+
+            // empty
+            $("div").empty()
+
+            // css 추가하기
+            $("div").addClass("orange");
+
+            
+        }
+
+        // 요소탐색
+        function search(){
+            console.log("자식요소 :", $("body").children())
+
+            // parent는 바로 위의 부모만
+            // parents는 바로 위 부모 뿐만 아니라 그 위 조상까지
+            console.log($("div").parents())
+            
+            // 다음 형제요소
+            // nextAll() 은 다음 형제요소가 모두 나온다.
+            console.log($("div").next())
+
+            // 이전 형제요소
+            // prevAll() 은 이전 형제요소가 모두 나온다.
+            console.log($("div").prev())
+            console.log($("div").prevAll())
+        }
+
+        function btn2(){
+            // 클래스 요소가 있는지 확인해줌
+            console.log($("div").hasClass("orange")) //true, false 판단
+
+            // removeClass 함수
+            // 아무 내용도 적지 않으면 모든 클래스를 삭제한다.
+            $("div").removeClass()
         }
         
+        function toggle(){
+            // 있으면 빼고, 없으면 넣는다.
+            $("div").toggleClass("red")
+        }
     </script>
 </body>
 </html>

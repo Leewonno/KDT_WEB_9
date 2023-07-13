@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/ui/1.13.2/jquery-ui.min.js" integrity="sha256-lSjKY0/srUM9BE3dPm+c4fBo1dky2v27Gdjm2uoZaL0=" crossorigin="anonymous"></script>
+    <title>제이쿼리_UI</title>
+</head>
+<body>
+    <style>
+        .box{
+            width: 100px;
+            height: 100px;
+            
+        }
+
+        .red{
+            background-color: red;
+        }
+
+        .orange{
+            background-color: orange;
+        }
+    </style>
+
+    <div class="box red">
+
+    </div>
+
+    <button type="button" onclick="switchColor()">바꾸기</button>
+
+    <script>
+        function switchColor(){
+            // Jquery UI에 있는 것
+            // switchClass에서 transition까지 걸 수 있다. 밀리초 단위로 1000->1초
+            // 앞에 걸 뒤에 걸로 바꾸겠다
+            // 없는 걸로 바꾸겠다고하면 아무 일도 일어나지 않는다
+            $(".box").switchClass("red", "orange", 1000);
+        }
+        
+    </script>
+</body>
+</html>

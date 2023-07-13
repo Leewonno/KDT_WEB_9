@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <title>실습1</title>
+</head>
+<body>
+    <style>
+        .box{
+            width: 100%;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+        }
+        .img{
+            border: 1px solid black;
+            width: 500px;
+            height: 500px;
+        }
+        img{
+            width: 100%;
+            height: 100%;
+        }
+
+        button{
+            background-color: rgb(60, 60, 60);
+            color: white;
+        }
+
+    </style>
+
+    <div class="box">
+        <div class="img" id="img">
+
+        </div>
+        <div class="btn">
+            <button type="button" onclick="ts('apple.webp')">사과</button>
+            <button type="button" onclick="ts('banana.jpg')">바나나</button>
+            <button type="button" onclick="ts('grape.jpg')">포도</button>
+            <button type="button" onclick="ts('peach.jpg')">복숭아</button>
+        </div>
+    </div>
+
+    <script>
+        function ts(fruits){
+            $("#img").empty();
+            $("#img").append(`<img src='img/${fruits}'>`)
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,133 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <title>실습3</title>
+</head>
+<body>
+    <style>
+        .box{
+            width: 560px;
+            margin-top: 30px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            border: 1px solid black;
+        }
+
+        .day_box{
+            display: flex;
+            text-align: center;
+        }
+
+        .day{
+            width: 80px;
+            height: 80px;
+            cursor: pointer;
+        }
+
+        .sun{
+            color: red;
+        }
+
+        .sat{
+            color: blue;
+        }
+
+        p{
+            margin: 0;
+            color: black;
+        }
+
+    </style>
+
+    <label for="">날짜:</label>
+    <input type="text" id="date">
+    <label for="">내용:</label>
+    <input type="text" id="content">
+    <input type="button" onclick="save()" value="작성">
+
+    <div class="box">
+        <h1>2023년 7월</h1>
+        <div class="day_box">
+            <div class="day sun">일</div>
+            <div class="day">월</div>
+            <div class="day">화</div>
+            <div class="day">수</div>
+            <div class="day">목</div>
+            <div class="day">금</div>
+            <div class="day sat">토</div>
+        </div>
+        <div class="day_box">
+            <div class="day sun"></div>
+            <div class="day"></div>
+            <div class="day"></div>
+            <div class="day"></div>
+            <div class="day"></div>
+            <div class="day"></div>
+            <div class="day sat" id="1">1</div>
+        </div>
+        <div class="day_box">
+            <div class="day sun" id="2">2</div>
+            <div class="day" id="3">3</div>
+            <div class="day" id="4">4</div>
+            <div class="day" id="5">5</div>
+            <div class="day" id="6">6</div>
+            <div class="day" id="7">7</div>
+            <div class="day sat" id="8">8</div>
+        </div>
+        <div class="day_box">
+            <div class="day sun" id="9">9</div>
+            <div class="day" id="10">10</div>
+            <div class="day" id="11">11</div>
+            <div class="day" id="12">12</div>
+            <div class="day" id="13">13</div>
+            <div class="day" id="14">14</div>
+            <div class="day sat" id="15">15</div>
+        </div>
+        <div class="day_box">
+            <div class="day sun" id="16">16</div>
+            <div class="day" id="17">17</div>
+            <div class="day" id="18">18</div>
+            <div class="day" id="19">19</div>
+            <div class="day" id="20">20</div>
+            <div class="day" id="21">21</div>
+            <div class="day sat" id="22">22</div>
+        </div>
+        <div class="day_box">
+            <div class="day sun" id="23">23</div>
+            <div class="day" id="24">24</div>
+            <div class="day" id="25">25</div>
+            <div class="day" id="26">26</div>
+            <div class="day" id="27">27</div>
+            <div class="day" id="28">28</div>
+            <div class="day sat" id="29">29</div>
+        </div>
+        <div class="day_box">
+            <div class="day sun" id="30">30</div>
+            <div class="day" id="31">31</div>
+            <div class="day"></div>
+            <div class="day"></div>
+            <div class="day"></div>
+            <div class="day"></div>
+            <div class="day sat"></div>
+        </div>
+    </div>
+
+    <script>
+        $(".day").click(function(e){
+            let num = e.currentTarget.id;
+            $("#date").val(num)
+        })
+
+        function save(){
+            let date = $("#date").val();
+            let content = $("#content").val();
+
+            $("#" + date).append(`<p>${content}</p>`);
+        }
+    </script>
+</body>
+</html>
