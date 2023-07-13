@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트2</title>
+    <script>
+        // 웹페이지가 로드될때 실행시키는 이벤트
+        // body요소가 모두 완성된 다음에 실행된다.
+        window.addEventListener("load", ()=>{
+            let div = document.querySelector("div");
+            div.style.marginLeft = "100px";
+        })
+    </script>
+</head>
+<body>
+    <button type="button">버튼</button>
+    <input type="text" placeholder="아이디를 입력해주세요." name="id">
+    <input type="password" placeholder="비밀번호를 입력해주세요." name="pw" id="pw">
+    <input type="password" placeholder="비밀번호를 다시 입력해주세요." name="pw_ck" id="pw_ck">
+
+    <div style="width: 100px; height: 100px; background-color: red;"></div>
+
+    <script>
+        let button = document.querySelector("button");
+
+        let input = document.getElementById("pw");
+        let input_ck = document.getElementById("pw_ck");
+        input.addEventListener("keyup", (e)=>{
+            console.log(e.key);
+            if(e.key == "Enter"){
+                alert("로그인!");
+            }
+        })
+
+        window.addEventListener("resize", ()=>{
+            // 윈도우 창의 가로 길이 
+            console.log(window.innerWidth);
+        })
+
+        // 스크롤 이벤트시
+        window.addEventListener("scroll", ()=>{
+            // 윈도우 창의 가로 길이 
+            console.log("스크롤 이벤트 발생");
+        })
+
+        // 창을 닫거나 다른곳으로 이동할때
+        window.addEventListener("unload", ()=>{
+
+        })
+
+        // focus에서 떨어질 때 발생한다.
+        input_ck.addEventListener("change", (e)=>{
+            if(e.currentTarget.value == input.value){
+                alert("같다");
+            }
+            else{
+                alert("다르다.")
+            }
+            console.log(e.currentTarget.value)
+        })
+        
+    </script>
+</body>
+</html>

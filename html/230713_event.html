@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>이벤트</title>
+</head>
+<body>
+
+    <button type="button">버튼</button>
+    <input type="text" name="id" placeholder="아이디를 입력해주세요.">
+
+    <script>
+        let btn = document.querySelector("button");
+        let ip = document.querySelector("input");
+        // addEventListener는 요소가 하나일 때 작동
+
+        // btn.addEventListener("click", function(){
+        //     alert("안녕");
+        // })
+
+        // // css hover와 같은 역할
+        // btn.addEventListener("mouseover", function(){
+        //     alert("안녕2");
+        // })
+
+        // // 마우스가 벗어났을 때
+        // btn.addEventListener("mouseout", function(){
+        //     alert("안녕3");
+        // })
+
+        btn.addEventListener("click", function(){
+            alert("실행");
+        })
+
+        ip.addEventListener("focus", (t)=>{
+            console.log(t);
+            console.log(t.currentTarget);
+            t.currentTarget.style.backgroundColor = "black"
+            // Js에서는 - 사용 불가. css 속성에 - 가 들어가던 것들은 대문자로 변환
+            // ex) background-color -> backgroundColor
+        })
+
+        // blur는 focus를 잃을 때 작동한다.
+        ip.addEventListener("blur", (t)=>{
+            t.currentTarget.style.backgroundColor = "yellow"
+            // Js에서는 - 사용 불가. css 속성에 - 가 들어가던 것들은 대문자로 변환
+            // ex) background-color -> backgroundColor
+        })
+
+    </script>
+</body>
+</html>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+    <title>제이쿼리</title>
+</head>
+<body>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: red;
+            transition: all 2s;
+        }
+    </style>
+
+    <button onclick="submited()">버튼</button>
+    <input type="text" name="id" id="id">
+
+    <div>
+
+    </div>
+
+    <script>
+        
+
+        function submited(){
+            let id = $("#id").val()
+            console.log(id);
+            // $("#id").val("aaa");
+
+            // 스타일적용
+            $("div").css("background-color", "blue");
+
+            // 속성적용
+            $("input").attr("placeholder", "아이디를 입력해주세요")
+
+            // text 함수
+            $("div").text("안녕")
+
+            // innerHTML과 비슷
+            // html 함수
+            $("div").html("<p>안녕하세요</p>");
+
+            // append함수
+            $("div").append("<h1>안녕</h1>")
+        }
+        
+    </script>
+</body>
+</html>
