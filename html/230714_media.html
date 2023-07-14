@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>반응형</title>
+</head>
+<body>
+    <style>
+        .box{
+
+        }
+        /* @media 유형 and (크기 조건) */
+        /* 유형에 스크린을 가장많이 사용 */
+        /* 유형에 all 도 많이 사용한다. */
+        /* all, print, screen */
+        /* print : 인쇄설정 */
+        /* 인쇄할때 필요없는걸 없앨 수도 있다. */
+
+        /* 크기 조건 : max, min-width / max, min-height */
+        /* max-width : 값 이하일 때  */
+        /* min-width : 값 이상일 때 */
+        @media screen and (max-width:700px) {
+            body{
+                background-color: black;
+            }
+        }
+
+        @media screen and (max-width:400px) {
+            body{
+                background-color: yellow;
+            }
+        }
+    </style>
+
+    <div class="box">
+        Hi
+    </div>
+</body>
+</html>

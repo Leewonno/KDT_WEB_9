@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습3</title>
+</head>
+<body>
+    <style>
+        .box{
+            display: flex;
+        }
+        .box div{
+            border-radius: 5px;
+            width: 100px;
+            height: 100px;
+            background-color: black;
+            margin: 10px;
+        }     
+        @media screen and (max-width:700px) {
+            .box{
+                flex-direction: column;
+            }
+            .box div{
+                background-color: skyblue;
+            } 
+        }
+
+    </style>
+    <div class="box">
+        <div></div>
+        <div></div>
+        <div></div>
+    </div>
+    
+</body>
+</html>

@@ -26,6 +26,12 @@
             width: 80px;
             height: 80px;
             cursor: pointer;
+            transition: all 0.5s;
+            overflow: auto;
+        }
+
+        .day:hover{
+            background-color: #e5e5e5;
         }
 
         .sun{
@@ -44,7 +50,7 @@
     </style>
 
     <label for="">날짜:</label>
-    <input type="text" id="date">
+    <input type="text" id="date" readonly>
     <label for="">내용:</label>
     <input type="text" id="content">
     <input type="button" onclick="save()" value="작성">
@@ -128,6 +134,12 @@
 
             $("#" + date).append(`<p>${content}</p>`);
         }
+
+        $(window).keyup(function(e){
+            if(e.key == "Enter"){
+                save()
+            }
+        })
     </script>
 </body>
 </html>
