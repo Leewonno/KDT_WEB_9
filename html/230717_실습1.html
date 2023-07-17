@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS 그리드</title>
+</head>
+<body>
+    <style>
+        .container{
+            display: grid;
+            /* 가로줄 정렬 */
+            
+            /* 각각의 열이 100px씩 차지 하도록 그걸 3줄 만든다.*/
+            /* grid-template-columns: 100px 100px 100px; */
+            /* 동일한 값을 가질 때, repeat() 함수를 이용한다. */
+            /* grid-template-columns: repeat(3, 200px); */
+            /* 2칸에 대해서 50%씩 나눠가지겠다. */
+            /* grid-template-columns: repeat(2, 1fr); */
+
+            /* 세로줄 정렬 */
+            /* 단, 세로는 기본적으로 뷰포트로 되어있지 않다. 1fr 이용어려움 */
+            /* grid-template-rows: repeat(3, 200px); */
+
+            /* 최대 최소 minmax() 함수 */
+            /* grid-template-columns: repeat(2, minmax(100px, auto)); */
+
+            /* gap은 얼마나 여백을 줄지 결정한다. */
+            /* gap은 row-gap과 column-gap을 합쳐놓은 것 */
+            grid-template-columns: repeat(6, 100px);
+            grid-template-rows: repeat(4, 100px);
+
+            grid-template-areas: 
+            /* 비워두고 싶으면 '.' 을 입력해놓으면 된다. */
+            'header header header header header header'
+            'nav main main main main aside'
+            'nav box box box2 box2 aside'
+            'footer footer footer footer footer footer';
+
+        }
+
+        .item{
+            /* width: 100px;
+            height: 100px; */
+            display: grid;
+            align-items: center;
+            justify-content: center;
+        }
+
+        .red{
+            background-color: #F94144;
+            grid-area: header;
+        }
+
+        .orange{
+            background-color: #F3722c;
+            grid-area: nav;
+        }
+
+        .yellow{
+            background-color: #F9C74F;
+            grid-area: main;
+        }
+
+        .green{
+            grid-area: aside;
+            background-color: #43AA8B;
+
+        }
+
+        .blue{
+            grid-area: box;
+            background-color: #F8961E;
+        }
+
+        .navy{
+            grid-area: box2;
+            background-color: #90BE6D;
+        }
+
+        .purple{
+            grid-area: footer;
+            background-color: #4444FF;
+        }
+    </style>
+
+    <div class="container">
+        <div class="item red"><div>F94144</div></div>
+        <div class="item orange"><div>F3722c</div></div>
+        <div class="item yellow"><div>F9C74F</div></div>
+        <div class="item green"><div>43AA8B</div></div>
+        <div class="item blue"><div>F8961E</div></div>
+        <div class="item navy"><div>90BE6D</div></div>
+        <div class="item purple"><div>4444FF</div></div>
+    </div>
+</body>
+</html>

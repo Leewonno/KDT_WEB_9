@@ -12,49 +12,136 @@ section {
   position: relative;
   width: 700px;
   height: 450px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
   
 }
 
 section .city{
-  width: 100%;
-  height: 100%;
-  margin-top: -220px;
+  width: 80%;
+  height: 80%;
+  margin-top: -320px;
 }
 
 section .sky {
   width: 100%;
   height: 100%;
+  animation: sky 5s infinite linear;
 }
 
 section .sky .sun {
   position: absolute;
-  width: 180px;
+  width: 100px;
   top: 20px;
+  animation: sun 5s infinite linear;
 }
 
 section .sky .moon {
   position: absolute;
-  width: 160px;
+  width: 100px;
   top: 20px;
+  animation: moon 5s infinite linear;
 }
 
 section .sky .cloud_1 {
   position: absolute;
-  width: 160px;
+  width: 120px;
+  margin-top: 65px;
+  left: 0;
+  animation: cloud 5s infinite linear alternate;
 }
 
 section .sky .cloud_2 {
   position: absolute;
   width: 90px;
+  margin-top: 95px;
+  left: 0;
+  animation: cloud2 5s infinite linear alternate;
 }
 
 section .city .city_img {
-  position: absolute;
+  /* position: absolute; */
   width: 100%;
 }
 
 @keyframes sun{
-  
+  0%{
+    rotate: 0deg;
+    opacity: 1;
+  }
+  25%{
+    opacity: 1;
+  }
+  50%{
+    opacity: 0;
+  }
+  75%{
+    opacity: 0;
+  }
+  100%{
+    rotate: 360deg;
+    opacity: 1;
+  }
+
+}
+
+@keyframes moon{
+  0%{
+    rotate: 0deg;
+    opacity: 0;
+  }
+  25%{
+    opacity: 0;
+  }
+  50%{
+    opacity: 1;
+  }
+  75%{
+    opacity: 1;
+  }
+  100%{
+    rotate: 360deg;
+    opacity: 0;
+  }
+
+}
+
+@keyframes sky{
+  0%{
+    background-color: rgb(77, 77, 252);
+  }
+  25%{
+    background-color: rgb(168, 168, 255);
+  }
+  50%{
+    background-color: rgb(148, 48, 255);
+  }
+  75%{
+    background-color: rgb(0, 0, 0);
+  }
+  100%{
+    background-color: rgb(77, 77, 252);
+  }
+}
+
+@keyframes cloud{
+  from{
+    left: 0;
+  }
+  to{
+    left: 600px;
+  }
+}
+
+@keyframes cloud2{
+  from{
+    left: 50px;
+  }
+  to{
+    left: 550px;
+  }
 }
 
 /* ANIMATION */
