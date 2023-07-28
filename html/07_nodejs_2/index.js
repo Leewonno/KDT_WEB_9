@@ -43,8 +43,26 @@ app.get('/fruits', (req, res) =>{
     res.render("230728_실습2");
 })
 
+app.get('/fruits2', (req, res) =>{
+    res.render("test/230728_실습2");
+})
 
+app.get('/gugudan', (req, res) =>{
+    res.render("230728_실습3", {gugu: [2, 3, 4, 5, 6, 7, 8, 9]});
+})
 
+app.get('/four', (req, res) =>{
+    res.render("230728_실습4", {src:"img/apple.webp"});
+})
+app.get('/four1', (req, res) =>{
+    res.send("실습4 1");
+})
+app.get('/four2', (req, res) =>{
+    res.send("실습4 2");
+})
+app.get('/four3', (req, res) =>{
+    res.send("실습4 3");
+})
 
 // listen은 서버를 열어준다.
 app.listen(PORT, ()=>{
