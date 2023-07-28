@@ -5,7 +5,7 @@
 
 # 현재 위치에 있는 module 폴더만 무시하겠다.
 # /module
-/node_modules
+/html/07_nodejs_2/node_modules
 
 # 맥사용자 필요없는 파일
 .DS_Store
