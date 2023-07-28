@@ -8,3 +8,4 @@
 
 # 맥사용자 필요없는 파일
 .DS_Store
+/html/07_nodejs/node_modules
