@@ -13,6 +13,7 @@ app.set("views", "./views");
 // 정적인 파일 불러오기
 app.use('/static', express.static('./static'));
 app.use('/img', express.static('./static/img'));
+app.use('/js', express.static('./static/js'));
 
 // get 방식으로 통신했다.
 // post 방식을 원하면 post로
@@ -35,12 +36,13 @@ app.get('/kdt9', (req, res) =>{
 })
 
 app.get('/ebr', (req, res) =>{
-    // render() 뷰 엔진 랜더링
-    // render는 두번째 인자로 데이터를 보낼 수 있다.
-    // ejs의 이름만 지정해주면 된다.
     res.render("230728_실습1");
-    // res.send("Hello Express KDT9");
 })
+
+app.get('/fruits', (req, res) =>{
+    res.render("230728_실습2");
+})
+
 
 
 
