@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="static/index.css" rel="stylesheet">
+    <title>Document</title>
+</head>
+<body>
+    <style>
+        li{
+            list-style: none;
+        }
+    </style>
+    <h1><%= name %></h1>
+    <h4>Hello Ejs</h4>
+
+    <ul class="test">
+        <% for(var i = 0; i<5; i++ ){ %>
+        <li>안녕</li>
+        <% } %>
+    </ul>
+</body>
+</html>
