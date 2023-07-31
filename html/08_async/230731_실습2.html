@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습2</title>
+</head>
+<body>
+    <script>
+        function call(name1){
+            return new Promise((resolve, reject)=>{
+                setTimeout(()=>{
+                    console.log(name1)
+                    name2 = name1;
+                    resolve();
+                }, 1000)
+            })
+        }
+
+        function back(){
+            return new Promise((resolve, reject)=>{
+                setTimeout(()=>{
+                    console.log("back")
+                    txt = "back";
+                    resolve();
+                }, 1000)
+            })
+        }
+
+        function hell(){
+            return new Promise((resolve, reject)=>{
+                setTimeout(()=>{
+                    message = "async / await";
+                    resolve();
+                }, 1000)
+            })
+        }
+
+        let name2;
+        let txt;
+        let message;
+
+        async function exec(){
+            await call("kim");
+            console.log(name2 + " 반가워");
+            await back();
+            console.log(txt + "을 실행했구나");
+            await hell();
+            console.log("여기는", message);
+        }
+        exec()
+    </script>
+</body>
+</html>
