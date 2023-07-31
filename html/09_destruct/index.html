@@ -71,6 +71,29 @@
             console.log(rest);
         }
         get(...value)
+
+
+        class Cat {
+            // 생성자
+            constructor(name2, age){
+                // 속성
+                this.name2 = name2;
+                this.age = age;
+            }
+
+            // 메소드 // function은 쓰지 않는다.
+            mew(){
+                console.log("야옹");
+            }
+            eat(){
+                console.log(this.name2 + "가 먹이를 먹는다.");
+            }
+        }
+
+        const cat1 = new Cat('나비', 1);
+        const cat2 = new Cat('냥이', 2);
+        cat1.eat();
+        cat2.eat();
     </script>
 </body>
 </html>
