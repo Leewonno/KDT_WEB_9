@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // 배열 구조 분해
+        const lists = ["apple", "banana"];
+        // 배열은 배열 전체를 바꾸지 못하지만, 내용은 바꿀 수 있다.
+
+        // 기존 방식
+        console.log(lists[0], lists[1]);
+
+        [item1, item2] = lists;
+        console.log(item1, item2);
+        item1 = "peach";
+        console.log(item1);
+
+        // 교환
+        // const x =1, y=3;
+        // const는 오류가 난다.
+        let x = 1, y = 3;
+        [x, y] = [y, x];
+
+        // 객체
+        const Person = {
+            name: "Lee",
+            age:25,
+            gender:"M",
+            friends:['a', 'b'],
+            hello: function(){
+                console.log("hello!");
+            }
+        }
+
+        Person.hello();
+
+        // 객체 접근 시 배열처럼 접근도 가능하다.
+        // 키 값을 문자열로 입력
+        console.log(Person['name']);
+        // 만약 키 값이 kdt-9 라면 원래 방법으로는 불가능, 문자열로 입력해야 접근가능하다. 특수 기호 접근할 때 이용한다.
+
+        Person['city'] = 'seoul';
+        console.log(Person)
+
+        // 순서는 상관없으나 Key가 들어가야한다.
+        // age:myAge -> age 키를 myAge로 바꾸겠다
+        const {name, city, gender, key="1", age:myAge} = Person;
+        console.log(name, city, gender, key);
+
+
+        // 원래는 concat 함수를 이용했었음
+        // spread 연산자 // 배열 뿐만 아니라 객체에도 사용할 수 있다.
+        const a = [1, 2, 3];
+        const b = [4, 5];
+        const c = "hello"
+        const spread = [...a, ...b];
+        
+        console.log(spread);
+        console.log([...c]);
+
+        // rest 파라미터
+        const value = [10, 20, 30];
+        // a에는 10이 들어가고 나머지는 뒤로 들어간다.
+        // 나머지는 항상 마지막에 쓰여야한다.
+        function get(a, ...rest){
+            console.log(a);
+            console.log(rest);
+        }
+        get(...value)
+    </script>
+</body>
+</html>
