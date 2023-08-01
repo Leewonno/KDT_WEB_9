@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form</title>
+</head>
+<body>
+    <h1><%= title %></h1>
+    <h4>GET 요청</h4>
+
+    <form action="/getForm" method="get">
+        <!-- required 는 값을 입력하지 않으면 전송시키지 않음 / 필수로 입력하도록함 -->
+        <input type="text" placeholder="id" name="id" required>
+        <input type="password" placeholder="pw" name="pw" required>
+        <button type="submit">전송</button>
+    </form>
+
+    <hr>
+
+    <h4>POST 요청</h4>
+    <form action="/postForm" method="post">
+        <input type="text" placeholder="id" name="id">
+        <input type="password" placeholder="pw" name="pw" pattern="^([a-z0-9]){8,12}$">
+        <input type="email">
+        <input type="radio">
+        <input type="checkbox">
+        <input type="tel">
+        <input type="date">
+        <!-- number는 문자가 들어가지 않음 -->
+        <input type="number">
+        <input type="date">
+        <input type="time">
+        <input type="color">
+        <button type="submit">전송</button>
+    </form>
+</body>
+</html>
