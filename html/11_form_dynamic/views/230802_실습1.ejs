@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>실습1</title>
+</head>
+<body>
+    <h1>GET으로 정보받기</h1>
+
+    <form name="register">
+        <label for="name">이름</label>
+        <input type="text" name="name" id="name">
+
+        <fieldset>
+            <legend>성별</legend>
+            <input type="radio" name="gender" id="man" value="남자">
+            <label for="man">남자</label>
+            <input type="radio" name="gender" id="woman" value="여자">
+            <label for="woman">여자</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>생년월일</legend>
+            <select name="year">
+                <option>1999</option>
+                <option>2000</option>
+                <option>2001</option>
+                <option>2002</option>
+                <option>2003</option>
+                <option>2004</option>
+                <option>2005</option>
+                <option>2006</option>
+                <option>2007</option>
+                <option>2008</option>
+                <option>2009</option>
+                <option>2010</option>
+                <option>2011</option>
+                <option>2012</option>
+                <option>2013</option>
+                <option>2014</option>
+                <option>2015</option>
+                <option>2016</option>
+                <option>2017</option>
+                <option>2018</option>
+                <option>2019</option>
+                <option>2020</option>
+                <option>2021</option>
+                <option>2022</option>
+                <option>2023</option>
+            </select>
+            <label>년</label>
+            <select name="month">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+            </select>
+            <label>월</label>
+            <select name="date">
+                <option>1</option>
+                <option>2</option>
+                <option>3</option>
+                <option>4</option>
+                <option>5</option>
+                <option>6</option>
+                <option>7</option>
+                <option>8</option>
+                <option>9</option>
+                <option>10</option>
+                <option>11</option>
+                <option>12</option>
+                <option>13</option>
+                <option>14</option>
+                <option>15</option>
+                <option>16</option>
+                <option>17</option>
+                <option>18</option>
+                <option>19</option>
+                <option>20</option>
+                <option>21</option>
+                <option>22</option>
+                <option>23</option>
+                <option>24</option>
+                <option>25</option>
+                <option>26</option>
+                <option>27</option>
+                <option>28</option>
+                <option>29</option>
+                <option>30</option>
+                <option>31</option>
+            </select>
+            <label>일</label>
+        </fieldset>
+
+        <fieldset>
+            <legend>관심사</legend>
+            <input type="checkbox" name="hobby" id="j" value="여행">
+            <label for="j">여행</label>
+            <input type="checkbox" name="hobby" id="f" value="패션">
+            <label for="f">패션</label>
+            <input type="checkbox" name="hobby" id="e" value="음식">
+            <label for="e">음식</label>
+        </fieldset>
+        <button type="button" onclick="axiosGet()">회원가입</button>
+    </form>
+
+    <div class="result"></div>
+
+    <script>
+        const resultBox = document.querySelector(".result");
+        const form = document.forms['register'];
+
+        function axiosGet(){
+
+            let hobby = "";
+
+            form.hobby.forEach(ele => {
+                if(ele.checked == true){
+                    hobby += ele.value;
+                }
+            });
+
+            const data = {
+                name:form.name.value,
+                gender:form.gender.value,
+                year:form.year.value,
+                month:form.month.value,
+                date:form.date.value,
+                hobby: hobby
+            }
+            console.log(data);
+
+            console.log("axios get");
+            axios({
+                method: "GET",
+                url: "axios",
+                params: data,
+            }).then((res)=>{
+                console.log('res:', res);
+                resultBox.innerHTML = `<div>회원가입 완료!</div> <div>${res.data.name}님 환영합니다.</div> <div>성별 : ${res.data.gender}</div><div>생년월일 : ${res.data.year}년 ${res.data.month}월 ${res.data.date}일</div> <div>관심사 : ${res.data.hobby}</div>`
+                resultBox.style.color = 'blue';
+            }).catch((err)=>{
+                console.log(err);
+            })
+        }
+    </script>
+</body>
+</html>
