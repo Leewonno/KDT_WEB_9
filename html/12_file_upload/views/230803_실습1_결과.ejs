@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>실습1</title>
+</head>
+<body>
+    <style>
+        .result > div{
+            display: flex;
+        }
+    </style>
+
+    <div>개인정보</div>
+
+    <div class="result">
+        <div>
+            <label>아이디:</label>
+            <div id="id"><%= data.id %></div>
+        </div>
+        <div>
+            <label>비밀번호:</label>
+            <div id="pw"><%= data.pw %></div>
+        </div>
+        <div>
+            <label>이름:</label>
+            <div id="name"><%= data.name %></div>
+        </div>
+        <div>
+            <label>나이:</label>
+            <div id="age"><%= data.age %></div>
+        </div>
+        <div style="display: block;">
+            <label>프로필사진:</label>
+            <img width="500px" src="<%= file.path %>" id="pt">
+        </div>
+    </div>
+
+    
+</body>
+</html>
