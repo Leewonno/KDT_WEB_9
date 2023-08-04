@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>댓글</title>
+</head>
+<body>
+    <h1><%= commentInfor.userId %> 님의 댓글 상세보기</h1>
+    <a href="/comments">댓글 목록 보기</a>
+    <div>
+        <p>작성일: <%= commentInfor.date %></p>
+        <p>댓글내용: <%= commentInfor.comment %></p>
+    </div>
+</body>
+</html>

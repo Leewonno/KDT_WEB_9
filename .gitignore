@@ -10,6 +10,7 @@
 /html/10_form/node_modules
 /html/11_form_dynamic/node_modules
 /html/12_file_upload/node_modules
+/html/14_mvc/node_modules
 
 # 맥사용자 필요없는 파일
 .DS_Store
