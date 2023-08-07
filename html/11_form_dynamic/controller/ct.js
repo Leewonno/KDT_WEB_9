@@ -10,7 +10,7 @@ exports.axget = (req, res)=>{
 
 exports.axpost = (req, res)=>{
     console.log('back:', req.body);
-    if(Infor.data().id == req.body.id && Infor.data().pw == req.body.pw){
+    if(Infor.data.id == req.body.id && Infor.data.pw == req.body.pw){
         res.send({result : true});
     }
     else{

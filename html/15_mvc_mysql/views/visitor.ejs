@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>방명록</title>
+</head>
+<body>
+    <h1>방명록</h1>
+    <form name="visitor-form">
+        <fieldset>
+            <legend>방명록 등록</legend>
+            <input type="text" placeholder="사용자 이름" id="name">
+            <input type="text" placeholder="방명록" id="comment">
+            <button type="button" onclick="registerComment()">등록</button>
+        </fieldset>
+        
+    </form>
+
+    <br>
+
+    <table border="1" cellspacing="0">
+        <tr>
+            <th>ID</th>
+            <th>작성자</th>
+            <th>방명록</th>
+            <th>수정</th>
+            <th>삭제</th>
+        </tr>
+        <% for(let i = 0; i < data.length; i++){ %>
+            <tr id="tr_<%= data[i].id %>">
+                <td><%= data[i].id %></td>
+                <td><%= data[i].name %></td>
+                <td><%= data[i].comment %></td>
+                <td><button type="button">수정</button></td>
+                <td><button type="button">삭제</button></td>
+            </tr>
+        <% } %>
+        
+    </table>
+
+    <script>
+        function registerComment(){
+            console.log("함수 실행");
+
+            const form = document.forms["visitor-form"];
+            axios({
+                method:"POST",
+                url:"/visitor/write",
+                data:{
+                    name:form.name.value,
+                    comment:form.comment.value,
+                }
+            }).then((res)=>{
+                console.log("응답", res);
+                const html = `<tr id=tr_${res.data.id}>
+                <td>${res.data.id}</td>
+                <td>${res.data.name}</td>
+                <td>${res.data.comment}</td>
+                <td><button type="button">수정</button></td>
+                <td><button type="button">삭제</button></td>
+            </tr>`
+
+            document.querySelector('table').insertAdjacentHTML('beforeend', html);
+            })
+        }
+    </script>
+</body>
+</html>
