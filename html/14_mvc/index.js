@@ -14,9 +14,6 @@ app.use('/', router);
 // const userRouter = require("./routes/user");
 // app.use('./user', userRouter);
 
-
-
-
 // 맨마지막 선언
 app.use('*', (req, res)=>{
     res.render('404');
