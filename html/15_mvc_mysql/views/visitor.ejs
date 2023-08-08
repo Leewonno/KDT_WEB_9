@@ -30,11 +30,11 @@
         </tr>
         <% for(let i = 0; i < data.length; i++){ %>
             <tr id="tr_<%= data[i].id %>">
-                <td><%= data[i].id %></td>
+                <td><a href="/visitor/get?id=<%= data[i].id %>"><%= data[i].id %></a></td>
                 <td><%= data[i].name %></td>
                 <td><%= data[i].comment %></td>
-                <td><button type="button">수정</button></td>
-                <td><button type="button">삭제</button></td>
+                <td><button type="button" onclick="editVisitor('<%= data[i].id %>')">수정</button></td>
+                <td><button type="button" onclick="deleteVisitor('<%= data[i].id %>')">삭제</button></td>
             </tr>
         <% } %>
         
@@ -55,15 +55,60 @@
             }).then((res)=>{
                 console.log("응답", res);
                 const html = `<tr id=tr_${res.data.id}>
-                <td>${res.data.id}</td>
+                <td><a href="/visitor/get?id=${res.data.id}">${res.data.id}</a></td>
                 <td>${res.data.name}</td>
                 <td>${res.data.comment}</td>
-                <td><button type="button">수정</button></td>
-                <td><button type="button">삭제</button></td>
+                <td><button type="button" onclick="editVisitor('${res.data.id}')">수정</button></td>
+                <td><button type="button" onclick="deleteVisitor('${res.data.id}')">삭제</button></td>
             </tr>`
 
             document.querySelector('table').insertAdjacentHTML('beforeend', html);
             })
+        }
+
+        function editVisitor(id){
+            const form = document.forms['visitor-form'];
+            axios({
+                method:'PATCH',
+                url:'/visitor/edit',
+                data:{
+                    id:Number(id),
+                    name:form.name.value,
+                    comment:form.comment.value,
+                }
+            }).then((res)=>{
+                if(res.data.result==true){
+                    alert("성공하였습니다.");
+                    window.location.reload();
+                }
+                else{
+                    alert("실패했습니다.");
+                }
+            })
+        }
+
+        function deleteVisitor(id){
+            if(confirm("정말 삭제하시겠습니까?")){
+                axios({
+                    method:'DELETE',
+                    url:'/visitor/delete',
+                    data:{
+                        id:Number(id),
+                    }
+                }).then((res)=>{
+                    if(res.data.result==true){
+                        alert("성공하였습니다.");
+                        window.location.reload();
+                    }
+                    else{
+                        alert("실패했습니다.");
+                    }
+                })
+            }
+            else{
+                alert("취소했습니다.")
+            }
+            
         }
     </script>
 </body>

@@ -1,0 +1,53 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>로그인</title>
+</head>
+<body>
+    <h1>로그인</h1>
+    <form name="form-login">
+        <input id="id" type="text" placeholder="아이디">
+        <input id="pw" type="password" placeholder="비밀번호">
+        <button type="button" onclick="login()">로그인</button>
+    </form>
+    <a href="/user/signup">회원가입</a>
+
+    <form method="post" action="/user/profile" name="profile">
+        <input type="hidden" value="" id="hiddenID" name="id">
+        <button type="submit" id="send" style="display: none;">버튼</button>
+    </form>
+
+    <script>
+        function login(){
+            console.log("로그인 실행");
+
+            const id = document.getElementById("id").value;
+            const pw = document.getElementById("pw").value;
+
+            axios({
+                method:"POST",
+                url:"/user/signin",
+                data:{
+                    id:id,
+                    pw:pw
+                }
+            }).then((res)=>{
+                if(res.data.result == true){
+                    alert(`${id}님 환영합니다.`)
+                    document.getElementById("hiddenID").value = id;
+                    document.getElementById("send").click();
+                    // window.location.href = '/user/profile';
+                }
+                else{
+                    alert("아이디 혹은 비밀번호가 틀렸습니다.")
+                }
+            })
+        }
+
+        
+    </script>
+</body>
+</html>
