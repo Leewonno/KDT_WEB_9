@@ -28,10 +28,13 @@ exports.loginUser = (body, cb) =>{
     conn.query(query, (err, rows)=>{
         if(rows.length == 0){
             // console.log(err);
+            // 아이디가 없는 경우
             cb({result:false});
         }
         else{
-            if(body.id == rows[0].userid && body.pw == rows[0].pw){
+            // 어차피 아이디는 body.id에 있는 값과 동일 비교할 필요 없음
+            // 비밀번호만 비교 후 넘겨주기
+            if(body.pw == rows[0].pw){
                 cb({result:true});
             }
             else{
