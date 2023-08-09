@@ -25,22 +25,33 @@
             const name = document.getElementById("name").value;
             const pw = document.getElementById("pw").value;
 
-            axios({
-                method:"POST",
-                url:"/user/signup",
-                data:{
-                    id:id,
-                    name:name,
-                    pw:pw
-                }
-            }).then((res)=>{
-                if(res.data.result == true){
-                    window.location.href = '/';
-                }
-                else{
-                    alert("오류가 발생했습니다.")
-                }
-            })
+            if(id.length < 1){
+                alert("아이디를 입력해주세요!");
+            }
+            else if(name.length < 1){
+                alert("이름을 입력해주세요!");
+            }
+            else if(pw.length < 1){
+                alert("비밀번호를 입력해주세요!");
+            }
+            else{
+                axios({
+                    method:"POST",
+                    url:"/user/signup",
+                    data:{
+                        id:id,
+                        name:name,
+                        pw:pw
+                    }
+                }).then((res)=>{
+                    if(res.data.result == true){
+                        window.location.href = '/';
+                    }
+                    else{
+                        alert("오류가 발생했습니다.")
+                    }
+                })
+            }
         }
     </script>
 </body>
