@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>프로필</title>
+</head>
+<body>
+    <h1><%= data.name %> 님 환영합니다.</h1>
+    
+    <label for="id"></label>
+    <input type="text" id="id" value="<%= data.userid %>">
+    <label for="name"></label>
+    <input type="text" id="name" value="<%= data.name %>">
+    <label for="pw"></label>
+    <input type="password" id="pw" value="<%= data.pw %>">
+
+    <button type="button" onclick="userModify()">수정</button>
+    <button type="button" onclick="userDelete()">삭제</button>
+
+    <a href="/">홈으로</a>
+    
+    <script>
+        function userModify(){
+
+            const id = document.getElementById("id").value;
+            const name = document.getElementById("name").value;
+            const pw = document.getElementById("pw").value;
+
+            axios({
+                method:"POST",
+                url:"/user/profile/edit",
+                data:{
+                    id:id,
+                    name:name,
+                    pw:pw,
+                }
+            }).then((res)=>{
+                if(res.data.result == true){
+                    document.getElementById("id").value = res.data.id;
+                    document.getElementById("name").value = res.data.name;
+                    document.getElementById("pw").value = res.data.pw;
+                    alert("수정되었습니다.")
+                    window.location.reload();
+                }
+                else{
+                    alert("실패했습니다.");
+                }
+                
+            })
+        }
+
+        function userDelete(){
+            const id = document.getElementById("id").value;
+
+            axios({
+                method:"POST",
+                url:"/user/profile/delete",
+                data:{
+                    id:id,
+                }
+            }).then((res)=>{
+                console.log(res);
+                if(res.data.result == true){
+                    alert("삭제되었습니다.")
+                    window.location.href = "/user/signin";
+                }
+                else{
+                    alert("실패했습니다.");
+                }
+                
+            })
+        }
+    </script>
+</body>
+</html>

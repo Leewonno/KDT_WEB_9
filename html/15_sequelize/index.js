@@ -2,7 +2,9 @@ const express = require("express");
 const app = express();
 const PORT = 8000;
 
-const mysql = require("mysql");
+const db = require("./models/index");
+
+// const mysql = require("mysql");
 
 //body parser
 app.use(express.urlencoded({extended:true}));
@@ -41,6 +43,10 @@ app.use("*", (req, res)=>{
     res.render("404");
 })
 
-app.listen(PORT, ()=>{
-    console.log(`127.0.0.1${PORT}`);
+// force : true -> 테이블에 있는 내용 있는 거 다 지우고 생성한다.
+db.sequelize.sync({force : false}).then(()=>{
+    app.listen(PORT, ()=>{
+        console.log(`127.0.0.1${PORT}`);
+    })
 })
+

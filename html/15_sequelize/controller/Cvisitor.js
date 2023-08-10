@@ -8,8 +8,11 @@ exports.main = (req, res)=>{
 // 전체 방명록 조회
 // select * from visitor = findAll()
 exports.visitor = (req, res)=>{
-    models.Visitor.findAll().then((result)=>{
+    models.Visitor.findAll({
+        limit:10,
+    }).then((result)=>{
         res.render("visitor", {data:result});
+        // res.send({data : result});
     });
 }
 
