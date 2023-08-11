@@ -1,12 +1,11 @@
+const {DataTypes} = require("sequelize");
 
-const {DataTypes} = require('sequelize');
-
-const studentModel = (sequelize) =>{
-    const Student = sequelize.define(
-        'student',
+const studentProfileModel = (sequelize) =>{
+    const studentProfile = sequelize.define(
+        'studentProfile',
         {
             id:{
-                type: DataTypes.INTEGER,
+                type:DataTypes.INTEGER,
                 allowNull:false,
                 primaryKey:true,
                 autoIncrement:true,
@@ -22,9 +21,8 @@ const studentModel = (sequelize) =>{
         },
         {
 
-        } 
-    )
-    return Student
+        }
+    );
+    return studentProfile;
 }
-
-module.exports = studentModel;
+module.exports = studentProfileModel;

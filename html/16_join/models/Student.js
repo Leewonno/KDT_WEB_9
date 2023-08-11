@@ -1,4 +1,3 @@
-
 const {DataTypes} = require('sequelize');
 
 const studentModel = (sequelize) =>{
@@ -11,13 +10,17 @@ const studentModel = (sequelize) =>{
                 primaryKey:true,
                 autoIncrement:true,
             },
-            name:{
-                type:DataTypes.STRING(15),
+            userid:{
+                type:DataTypes.STRING(30),
                 allowNull:false,
+                unique:true,
             },
-            major:{
-                type:DataTypes.STRING(40),
-                allowNull:false,
+            pw:{
+                type:DataTypes.STRING(260),
+                allowNull:false
+            },
+            email:{
+                type:DataTypes.STRING(70),
             }
         },
         {
