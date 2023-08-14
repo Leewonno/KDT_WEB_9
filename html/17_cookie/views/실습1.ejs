@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>실습1</title>
+</head>
+<body>
+    <style>
+        .modal{
+            width: 500px;
+            height: 500px;
+            position: absolute;
+            left: 100px;
+            top: 100px;
+            background-color: skyblue;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .modal label{
+            cursor: pointer;
+        }
+
+        .close{
+            text-align: right;
+            margin-right: 20px;
+            margin-top: 10px;
+        }
+
+        .close_button{
+            cursor: pointer;
+        }
+    </style>
+    <div class="modal">
+        <div class="close" onclick="close_modal()"><div class="close_button">X</div></div>
+        <div class="today">
+            <input type="checkbox" id="todayno">
+            <label for="todayno">오늘만 그만보기</label>
+        </div>
+    </div>
+
+    <script>
+        if(<%= result %>){
+            document.querySelector(".modal").style.display = "none";
+        }else{
+            document.querySelector(".modal").style.display = "flex";
+        }
+        // if(data[0].result)
+        // const ck = document.cookie;
+        // console.log(ck.indexOf("myCookie"));
+    </script>
+
+    <script>
+        function close_modal(){
+            const id = true;
+            const today_check = document.getElementById("todayno");
+            if(today_check.checked==true){
+                axios({
+                    method:"POST",
+                    url:"/cookie/check",
+                    data:{
+                        id:id,
+                    }
+                }).then((res)=>{
+                    if(res.data.result==true){
+                        alert("쿠키설정 완료");
+                    }else{
+                        alert("쿠키설정 실패");
+                    }
+                }).catch((err)=>{
+                    console.log(err);
+                })
+            }
+
+            document.querySelector(".modal").style.display = "none";
+        }
+    </script>
+</body>
+</html>

@@ -18,6 +18,9 @@
 /html/15_sequelize/node_modules
 /html/backend_project/node_modules
 /html/16_join/node_modules
+/html/17_cookie/node_modules
+/html/17_session_practice/node_modules
+/html/19_jwt/node_modules
 
 # 맥사용자 필요없는 파일
 .DS_Store

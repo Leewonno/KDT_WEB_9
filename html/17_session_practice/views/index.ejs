@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>Document</title>
+</head>
+<body>
+
+
+    <h1>Session 실습</h1>
+    <div class="result"></div>
+
+    <script>
+        if(window.localStorage.getItem("token") == null){
+            document.querySelector(".result").innerHTML = `<a href="/signup">회원가입</a> <a href="/login">로그인</a>`
+        }
+        else{
+            axios({
+                method:"GET",
+                url:"/login",
+                headers:{
+                    authorization:`Bearer ${window.localStorage.getItem("token")}`
+                }
+            }).then((res)=>{
+                if(res.data.isLogin){
+                    document.querySelector(".result").innerHTML = `<p>${res.data.user}님 환영합니다.</p><a href="#" onclick="logout()">로그아웃</a>`
+                }
+                else{
+                    document.querySelector(".result").innerHTML = `<a href="/signup">회원가입</a><a href="/login">로그인</a>`
+                }
+            }).catch((err)=>{
+                console.log(err);
+            })
+        }
+        
+
+        function logout(){
+            window.localStorage.removeItem("token");
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+    <title>로그인</title>
+</head>
+<body>
+    <h1>로그인</h1>
+    <form method="post" action="/login">
+        <input type="text" placeholder="아이디" id="id" name="id">
+        <input type="password" placeholder="비밀번호" id="pw" name="pw">
+        <button type="button" onclick="login()">로그인</button>
+    </form>
+
+    <script>
+        function login(){
+            axios({
+                method:"POST",
+                url:"/login",
+                data:{
+                    id:document.getElementById("id").value,
+                    pw:document.getElementById("pw").value,
+                }
+            }).then((res)=>{
+                if(res.data.result){
+                    window.localStorage.setItem("token", res.data.token);
+                    window.location.href = "/";
+                }
+                else{
+                    alert("아이디 혹은 비밀번호가 틀립니다.")
+                }
+            })
+        }
+    </script>
+</body>
+</html>
