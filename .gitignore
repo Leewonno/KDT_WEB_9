@@ -21,6 +21,7 @@
 /html/17_cookie/node_modules
 /html/17_session_practice/node_modules
 /html/19_jwt/node_modules
+/html/20_secret/node_modules
 
 # 맥사용자 필요없는 파일
 .DS_Store
