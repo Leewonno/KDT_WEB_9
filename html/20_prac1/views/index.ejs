@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <h1>메인</h1>
+    <div class="result"></div>
+   
+    
+
+    <script>
+        const token = window.localStorage.getItem("token");
+        // console.log(token);
+        if(token !== null){
+            document.querySelector('.result').innerHTML = `<a href="/profile">프로필</a> <a href="#" onclick="logout()">로그아웃</a>`;
+        }
+        else{
+            document.querySelector('.result').innerHTML = `<a href="/login">로그인</a> <a href="/signup">회원가입</a>`;
+        }
+
+        function logout(){
+            window.localStorage.removeItem("token");
+            window.location.reload();
+        }
+    </script>
+</body>
+</html>

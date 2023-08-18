@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+
+    <title>회원정보</title>
+</head>
+<body>
+    <input type="text" placeholder="아이디" id="id">
+    <input type="text" placeholder="이름" id="name"> <br />
+    <input type="password" placeholder="새 비밀번호" id="new_pw">
+    <button type="button" onclick="saveData()">저장</button> <br />
+    <a href="/">홈으로</a>
+    <script>
+        axios({
+            method:"POST",
+            url:"/profile",
+            data:{
+                token:window.localStorage.getItem("token"),
+            }
+        }).then((res)=>{
+            document.getElementById("id").value = res.data.id;
+            document.getElementById("name").value = res.data.name;
+        }).catch((err)=>{
+            console.log(err);
+            alert("로그인이 되어있지 않습니다!");
+            window.location.href = "/";
+        })
+
+        function saveData(){
+            if(document.getElementById("new_pw").value.length === 0){
+                axios({
+                    method:"POST",
+                    url:"/profile/modify",
+                    data:{
+                        userid:document.getElementById("id").value,
+                        pw:document.getElementById("new_pw").value,
+                        name:document.getElementById("name").value,
+                    }
+                }).then((res)=>{
+                    if(res.data.result){
+                        alert("수정되었습니다!");
+                        window.location.reload();
+                    }
+                    else{
+                        alert("오류가 발생했습니다!")
+                    }
+                    
+                }).catch((err)=>{
+                    console.log(err);
+                    alert("오류가 발생했습니다!");
+                })
+            }
+            else{
+                axios({
+                    method:"POST",
+                    url:"/profile/modify/new",
+                    data:{
+                        userid:document.getElementById("id").value,
+                        pw:document.getElementById("new_pw").value,
+                        name:document.getElementById("name").value,
+                    }
+                }).then((res)=>{
+                    if(res.data.result){
+                        alert("수정되었습니다!");
+                        window.location.reload();
+                    }
+                    else{
+                        alert("오류가 발생했습니다!")
+                    }
+                    
+                }).catch((err)=>{
+                    console.log(err);
+                    alert("오류가 발생했습니다!");
+                })
+            }
+        }
+    </script>
+</body>
+</html>
