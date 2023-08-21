@@ -30,5 +30,47 @@
             <input type="text" name="title">
             <button type="submit">업로드</button>
         </form>
+
+        <h1>동적 파일 업로드</h1>
+        <form onsubmit="fileupload(event)">
+            <input type="file" id="dynamic-file"><br />
+            <input type="text" id="title">
+            <button type="submit">업로드</button>
+        </form>
+
+        <div class="result">
+
+        </div>
+
+        <script>
+            const result = document.querySelector(".result");
+
+            async function fileupload(event){
+                event.preventDefault(); //기본 제출 동작을 막음
+                const title = document.getElementById("title").value;
+                const file = document.getElementById("dynamic-file").files;
+                console.log(file[0]);
+
+                // multer로 보내야한다
+                // 일단데이터라 폼 데이터(?)로 바꿔줘야한다
+                // 자바스크립트 내장객체 중 하나 / 폼 데이터를 생성시켜준다.
+                const formData = new FormData();
+
+                // append(key, value)
+                formData.append('title', title);
+                // 파일 보내는 건 항상 마지막에
+                formData.append('dynamic-file', file[0]);
+
+                const res = await axios({
+                    method:"POST",
+                    url:"/dynamicFile",
+                    data:formData,
+                    headers:{
+                        'Content-Type': 'multipart/form-data',
+                    }
+                });
+                result.innerHTML = `<img src="${res.data.path}" style="width:500px">`
+            }
+        </script>
     </body>
 </html>

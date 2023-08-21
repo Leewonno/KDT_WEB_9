@@ -57,16 +57,21 @@ app.post('/upload', uploadDetial.single('userfile'), (req, res)=>{
     res.send(req.body);
 })
 
-// 한번에 여러개
-app.post('/upload/array', uploadDetial.array('userfile'), (req, res)=>{
+// 한번에 여러개 //array(name, 최대파일개수)
+app.post('/upload/array', uploadDetial.array('userfile', 2), (req, res)=>{
     console.log(req.files);
     res.send(req.body);
 })
 
-// 한번씩 여러개
-app.post('/upload/fields', uploadDetial.fields([{name:"userfile1"}, {name:"userfile2"}]), (req, res)=>{
+// 한번씩 여러개 //maxCount : 최대파일개수
+app.post('/upload/fields', uploadDetial.fields([{name:"userfile1", maxCount:2}, {name:"userfile2"}]), (req, res)=>{
     console.log(req.files);
     res.send(req.body);
+})
+
+// 동적폼 // 동적(비동기)
+app.post('/dynamicFile',uploadDetial.single('dynamic-file'), (req, res)=>{
+    res.send(req.file);
 })
 
 app.use('*', (req, res)=>{

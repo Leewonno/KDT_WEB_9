@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <h1>동적 파일 업로드</h1>
+        <form onsubmit="fileupload(event)">
+            <input type="file" id="dynamic-file" multiple><br />
+            <!-- <input type="text" id="title"> -->
+            <button type="submit">업로드</button>
+        </form>
+
+        <div class="result">
+
+        </div>
+
+        <script>
+            const result = document.querySelector(".result");
+
+            async function fileupload(event){
+                event.preventDefault(); //기본 제출 동작을 막음
+                // const title = document.getElementById("title").value;
+                const file = document.getElementById("dynamic-file").files;
+
+                const formData = new FormData();
+
+                // formData.append('title', title);
+                for(let i = 0; i<file.length; i++){
+                    formData.append('dynamic-file', file[i]);
+                }
+                console.log(formData);
+                try{
+                    const res = await axios({
+                        method:"POST",
+                        url:"/dynamicFile",
+                        data:formData,
+                        headers:{
+                            'Content-Type': 'multipart/form-data',
+                        }
+                    });
+
+                    for(let i=0; i<res.data.length; i++){
+                        result.innerHTML += `<img src="${res.data[i].path}" style="width:500px">`
+                    }
+                }
+                catch(err){
+                    console.log(err);
+                }
+                
+            }
+        </script>
+    </body>
+</html>
