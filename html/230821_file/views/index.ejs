@@ -1,0 +1,34 @@
+<!DOCTYPE html>
+<html lang="ko">
+    <head>
+        <meta charset="UTF-8" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
+        <title>Document</title>
+    </head>
+    <body>
+        <div>코드작성</div>
+        <h1>싱글 연습하기</h1>
+        <form action="/upload" method="post" enctype="multipart/form-data">
+            <input type="file" name="userfile"><br />
+            <input type="text" name="title">
+            <button type="submit">업로드</button>
+        </form>
+
+        <h1>멀티연습(ver1) : 한번에 여러개 업로드</h1>
+        <form action="/upload/array" method="post" enctype="multipart/form-data">
+            <input type="file" name="userfile" multiple><br />
+            <input type="text" name="title">
+            <button type="submit">업로드</button>
+        </form>
+
+        <h1>멀티연습(ver2) : 여러개의 요청</h1>
+        <form action="/upload/fields" method="post" enctype="multipart/form-data">
+            <!-- multiple을 지우지 않으면 하나에 여러개를 넣어도 정상적으로 업로드된다 -->
+            <input type="file" name="userfile1" multiple><br />
+            <input type="file" name="userfile2" multiple><br />
+            <input type="text" name="title">
+            <button type="submit">업로드</button>
+        </form>
+    </body>
+</html>
