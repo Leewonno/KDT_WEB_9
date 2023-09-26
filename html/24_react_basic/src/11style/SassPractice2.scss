@@ -1,0 +1,47 @@
+@import './_utils.scss';
+// @include move();
+
+.circle{
+    width: $sizeWidth;
+    height: $sizeHeight;
+    border-radius: 50%;
+    position: absolute;
+}
+
+.pink{
+    background-color: $color-pink;
+    top: 0px;
+    left: 0px;
+    @include move(pink);
+    // animation: pink 3s infinite linear;
+}
+
+.yellow{
+    background-color: $color-yellow;
+    top: 50px;
+    left: 0px;
+    @include move(yellow);
+    // animation: yellow 3s infinite linear;
+    // @include move(200px, 50px);
+}
+
+.green{
+    background-color: $color-black;
+    top: 100px;
+    left: 0px;
+    @include move(black);
+    // animation: black 3s infinite linear;
+    // @include move(300px, 100px);
+}
+
+
+.container{
+    width: 500px;
+    height: 500px;
+    position: relative;
+
+    
+}
+
+
+

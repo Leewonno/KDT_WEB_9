@@ -1,0 +1,43 @@
+@import './utils.scss';
+
+.SassComponent{
+    display: flex;
+
+    // 중첩
+    .box{
+        @include box(100px);
+        border:1px solid black;
+
+        // .box.red 와 동일
+        &.red{
+            background-color: $color-red;
+        }
+    
+        &.orange{
+            background-color: $color-orange;
+        }
+    
+        &.yellow{
+            background-color: $color-yellow;
+        }
+
+        &.green{
+            background-color: $color-green;
+        }
+
+        &.blue{
+            background-color: $color-blue;
+        }
+
+        &.darkblue{
+            background-color: $color-darkblue;
+        }
+
+        &.purple{
+            background-color: $color-purple;
+        }
+    }
+
+    
+}
+
