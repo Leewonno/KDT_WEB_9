@@ -1,0 +1,25 @@
+import { createSlice } from "@reduxjs/toolkit";
+
+const initLogin = {
+    isLogin:false,
+}
+
+const loginSlice = createSlice({
+    name:"login",
+    initialState:initLogin,
+    reducers: {
+        login(state){
+            state.isLogin = true;
+        },
+        logout(state){
+            state.isLogin = false;
+        }
+    },
+})
+
+// const store = configureStore({
+//     reducer: {count : counterSlice.reducer, login:loginSlice.reducer},
+// });
+
+export const loginAction = loginSlice.actions;
+export default loginSlice.reducer;
